@@ -20,3 +20,20 @@ class ProjectAdmin(SummernoteModelAdmin):
     search_fields = ['title', 'content']
 
     summernote_fields = ('description')
+
+@admin.register(Comment)
+
+class CommentAdmin(admin.ModelAdmin):
+    """Admin View for Comment"""
+
+    list_display = ('name', 'email', 'project', 'published', 'created_on')
+
+    list_filter = ('published', 'created_on')
+
+    search_fields = ('name', 'email', 'body')
+
+    actions = ['publish_comment']
+
+    def publish_comment(self, request, queryset):
+        """Approve comments"""""
+        queryset.update(published=True)
