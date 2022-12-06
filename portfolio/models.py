@@ -8,9 +8,9 @@ from cloudinary.models import CloudinaryField
 
 PUBLISH = ((0, "NO"), (1, "YES"))
 RATE = ((0, "0"), (1, "1"), (2, "2"), (3, "3"), (4, "4"), (5, "5"))
-class Projects(models.Model):
+class Project(models.Model):
     """
-    Model for the projects
+    Model for the project
     """
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
@@ -24,8 +24,8 @@ class Projects(models.Model):
     live_url = models.URLField(max_length = 200)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=PUBLISH, default=0)
-    likes = models.ManyToManyField(User, related_name="projects_likes", blank=True)
+    published = models.IntegerField(choices=PUBLISH, default=0)
+    likes = models.ManyToManyField(User, related_name="project_likes", blank=True)
 
 
 # Meta class for ordering projects by date
@@ -53,7 +53,7 @@ class Comment(models.Model):
     Model for the comments
     """
     project = models.ForeignKey(
-        Projects, on_delete=models.CASCADE, related_name="comments"
+        Project, on_delete=models.CASCADE, related_name="comments"
     )
     name = models.CharField(max_length=100)
     email = models.EmailField()

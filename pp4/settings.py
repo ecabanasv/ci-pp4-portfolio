@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pp4-portfolio.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['pp4-portfolio.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pp4.wsgi:application'
+WSGI_APPLICATION = 'pp4.wsgi.application'
 
 
 # Database
