@@ -2,11 +2,15 @@ from django.shortcuts import render
 from django.views import generic
 from .models import Project
 
-# Create your views here.
+""" Views for the portfolio app"""
 
 def index(request):
     """ Returns index.html """
     return render(request, 'index.html')
+
+def about(request):
+    """ Returns about.html """
+    return render(request, 'about.html')
 
 class ProjectListView(generic.ListView):
     """
@@ -21,3 +25,8 @@ class ProjectListView(generic.ListView):
         Return the published projects
         """
         return Project.objects.filter(published=1).order_by('-created_on')
+
+def contact(request):
+    """ Returns contact.html """
+    return render(request, 'contact.html')
+
