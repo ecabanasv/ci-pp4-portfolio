@@ -4,6 +4,10 @@ from .models import Project
 
 # Create your views here.
 
+def index(request):
+    """ Returns index.html """
+    return render(request, 'index.html')
+
 class ProjectListView(generic.ListView):
     """
     Class based view for the projects
