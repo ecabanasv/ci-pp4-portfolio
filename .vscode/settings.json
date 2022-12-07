@@ -27,5 +27,8 @@
    "[python]": {
       "editor.defaultFormatter": "ms-python.python"
    },
-   "python.formatting.provider": "black"
+   "python.formatting.provider": "black",
+   "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+   }
 }
