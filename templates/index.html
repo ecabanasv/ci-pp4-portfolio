@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <h1>Home</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-            </div>
-        </div>
+<div class="row d-flex justify-content-center my-5">
+    <div class="col-sm">
+        <main class="p-3 lh-lg">
+            <h1>Hi, <br>I'm Enrique, <br>Web Developer Student @ CI</h1>
+            <p class="lead">Full Stack / Django / Bootstrap</p>
+            <p class="lead">
+              <a href="{% url 'contact' %}" class="btn border-white bg-white">Contact me!</a>
+            </p>
+          </main>
     </div>
+    <div class="col-sm">
+       <img src="https://picsum.photos/500/400" alt="home-img">
+    </div>
+</div>
+
 {% endblock %}
