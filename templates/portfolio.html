@@ -1,14 +1,37 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <h1>Portfolio</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-            </div>
+{% extends "base.html" %} {% block content %}
+<div class="row">
+  {% for project in projects %}
+  <div class="col-md-4">
+    <div class="card mb-4 shadow-sm bg-dark">
+      {% if "placeholder" in project.image_main.url %}
+      <img
+        class="card-img-top"
+        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+      />
+      {% else %}
+      <img class="card-img-top" src=" {{ project.image_main.url }}" />
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a
+              href="{{ project.github_url }}"
+              target="_blank"
+              class="text-white"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="{{ project.live_url }}" target="_blank" class="text-white"
+              ><i class="fa-solid fa-globe"></i></a>
+            <a
+              href="{% url 'project_detail' project.slug  %}"
+              class="text-white"
+              ><i class="fa-solid fa-circle-info"></i></a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
