@@ -30,7 +30,7 @@ class ProjectListView(generic.ListView):
         return Project.objects.filter(published=1).order_by('-created_on')
 
 """ Class based view for the project detail"""
-class ProjectDetailView(generic.DetailView):
+class ProjectDetailView(View):
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Project.objects.filter(published=1)
