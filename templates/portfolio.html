@@ -11,10 +11,8 @@
       {% else %}
       <img class="card-img-top" src=" {{ project.image_main.url }}" />
       {% endif %}
-      <div class="card-body">
+      <div class="card-body  text-center">
         <h5 class="card-title">{{ project.title }}</h5>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
             <a
               href="{{ project.github_url }}"
               target="_blank"
@@ -22,14 +20,14 @@
               ><i class="fa-brands fa-github"></i
             ></a>
             <a href="{{ project.live_url }}" target="_blank" class="text-white"
-              ><i class="fa-solid fa-globe"></i></a>
+              ><i class="fa-solid fa-globe"></i
+            ></a>
             <a
               href="{% url 'project_detail' project.slug  %}"
               class="text-white"
-              ><i class="fa-solid fa-circle-info"></i></a>
-          </div>
+              ><i class="fa-solid fa-circle-info"></i
+            ></a>
         </div>
-      </div>
     </div>
   </div>
   {% endfor %}
