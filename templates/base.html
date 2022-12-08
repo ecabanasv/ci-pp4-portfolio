@@ -30,10 +30,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body>
+  <body class="text-white bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">ecabanas dev</a>
+      <div class="container">
+        <a class="navbar-brand" href="/">ecabanas dev</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -73,10 +73,12 @@
         </div>
       </div>
     </nav>
-    {% block content %}
-    <!-- This is the content block -->
-    {% endblock content %}
-    <footer class="bg-dark text-center text-white fixed-bottom">
+    <div class="container my-5">
+      {% block content %}
+      <!-- This is the content block -->
+      {% endblock content %}
+    </div>
+    <footer class="bg-dark text-center text-white mt-5">
       <!-- Grid container -->
       <div class="container p-2 pb-1">
         <!-- Section: Social media -->
@@ -84,18 +86,19 @@
           <!-- Linkedin -->
           <a
             class="btn btn-outline-light btn-floating m-1"
-            href="#!"
+            href="https://www.linkedin.com/in/ecabanasv/"
             role="button"
+            target="_blank"
             ><i class="fab fa-linkedin-in"></i
           ></a>
 
           <!-- Github -->
           <a
             class="btn btn-outline-light btn-floating m-1"
-            href="#!"
+            href="https://github.com/ecabanasv"
             role="button"
-            ><i class="fab fa-github"></i
-          ></a>
+            target="_blank"
+            ><i class="fa-brands fa-github-alt"></i></a>
         </section>
         <!-- Section: Social media -->
       </div>
