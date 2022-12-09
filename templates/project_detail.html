@@ -1,1 +1,69 @@
-<h1>Hello World!</h1>
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="text-center">{{ project.title }}</h1>
+      {% if "placeholder" in project.image_main.url %}
+      <img
+        class="img-fluid"
+        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+      />
+      {% else %}
+      <img class="img-fluid" src=" {{ project.image_main.url }}" />
+      {% endif %}
+      <div class="d-flex justify-content-center">
+        <a href="{{ project.github_url }}" target="_blank" class="text-white"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a href="{{ project.live_url }}" target="_blank" class="text-white"
+          ><i class="fa-solid fa-globe"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-center">Description</h2>
+      <p class="text-center">{{ project.description | safe }}</p>
+    </div>
+  </div>
+  <div class="row">
+    {% if user.is_authenticated %}
+    <form
+      class="d-inline"
+      action="{% url 'like_project' project.slug %}"
+      method="POST"
+    >
+      {% csrf_token %} {% if liked %}
+      <button
+        type="submit"
+        name="project_id"
+        value="{{project.slug}}"
+        class="btn-like"
+      >
+        <i class="fas fa-heart"></i>
+      </button>
+      {% else %}
+      <button
+        type="submit"
+        name="project_id"
+        value="{{project.slug}}"
+        class="btn-like"
+      >
+        <i class="far fa-heart"></i>
+      </button>
+      {% endif %}
+    </form>
+    {% else %}
+    <span class="text-secondary"><i class="far fa-heart"></i></span>
+    {% endif %}
+    <!-- The number of likes goes before the closing strong tag -->
+    <span class="text-secondary">{{ project.likes_counter }} </span>
+  </div>
+</div>
+
+{% endblock %}
