@@ -1,5 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <div class="row">
+  {% if user.is_superuser %}
+  <div class="col-md-12 mb-3 d-flex justify-content-center">
+    <a href="{% url 'project_create' %}" class="btn btn-secondary bg-dark text-white"
+      >Add project <i class="fa-solid fa-circle-plus"></i></a
+    >
+  </div>
+  {% endif %}
   {% for project in projects %}
   <div class="col-md-4">
     <div class="card mb-4 shadow-sm bg-dark">
@@ -12,7 +19,12 @@
       <img class="card-img-top" src=" {{ project.image_main.url }}" />
       {% endif %}
       <div class="card-body text-center">
-        <h5 class="card-title">{{ project.title }}</h5>
+        <h5 class="card-title">{{ project.title }}        {% if user.is_superuser %}
+          <a href="{% url 'project_update' project.slug  %}" class="text-warning"
+            ><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
+            ><i class="fa-solid fa-trash"></i></a>
+          {% endif %}</h5>
         <a href="{{ project.github_url }}" target="_blank" class="text-white"
           ><i class="fa-brands fa-github"></i
         ></a>
@@ -22,12 +34,6 @@
         <a href="{% url 'project_detail' project.slug  %}" class="text-white"
           ><i class="fa-solid fa-circle-info"></i
         ></a>
-        {% if user.is_superuser %}
-        <a href="{% url 'project_update' project.slug  %}" class="text-warning"
-          ><i class="fa-solid fa-pen-to-square"></i></a>
-        <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
-          ><i class="fa-solid fa-trash"></i></a>
-        {% endif %}
       </div>
     </div>
   </div>
