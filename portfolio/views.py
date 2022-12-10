@@ -1,9 +1,10 @@
 """ Portfolio views"""
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.mail import send_mail, BadHeaderError
 from .models import Project
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
 
 def index(request):
     """ Returns index.html """
@@ -100,12 +101,14 @@ class ProjectCreateView(generic.CreateView):
     model = Project
     template_name = 'project_create.html'
     fields = ['title', 'excerpt', 'description', 'image_main', 'live_url', 'github_url', 'published']
+    success_url = '/portfolio/'
 
 class ProjectUpdateView(generic.UpdateView):
     """ Class based view for the project update"""
     model = Project
     template_name = 'project_update.html'
     fields = ['title', 'excerpt', 'description', 'image_main', 'live_url', 'github_url', 'published']
+    success_url = '/portfolio/'
 
 class ProjectDeleteView(generic.DeleteView):
     """ Class based view for the project delete"""
@@ -113,7 +116,27 @@ class ProjectDeleteView(generic.DeleteView):
     template_name = 'project_delete.html'
     success_url = '/portfolio/'
 
+class ContactView(View):
+    """ Class based view for the contact"""
+    def get(self, request, *args, **kwargs):
+        """Get method for the contact"""
+        return render(request, 'contact.html', {'form' : ContactForm()})
 
-def contact(request):
-    """ Returns contact.html """
-    return render(request, 'contact.html')
+    def post(self, request, *args, **kwargs):
+        """Post method for the contact"""
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            body = {
+			'name': form.cleaned_data['name'], 
+			'email': form.cleaned_data['email'], 
+			'subject': form.cleaned_data['subject'], 
+			'message':form.cleaned_data['message'], 
+			}
+            message = "\n".join(body.values())
+            try:
+                send_mail("Contact Form", message, 'ecvoracle@gmail.com', ['ecvoracle@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return HttpResponseRedirect(reverse('contact'))
+        return render(request, 'contact.html', {'form' : form})
+
