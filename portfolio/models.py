@@ -75,3 +75,15 @@ class Comment(models.Model):
                 "Cons: {self.text_cons}"+
                 "Score: {self.score}"+
                 "By: {self.name}")
+
+class Contact(models.Model):
+    """
+    Model for the contact
+    """
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
