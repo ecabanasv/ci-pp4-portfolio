@@ -1,68 +1,117 @@
-{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1 class="text-center">{{ project.title }}</h1>
       {% if "placeholder" in project.image_main.url %}
       <img
-        class="img-fluid"
+        class="project-image img-fluid"
         src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
       />
       {% else %}
-      <img class="img-fluid" src=" {{ project.image_main.url }}" />
+      <img
+        class="project-image img-fluid"
+        src=" {{ project.image_main.url }}"
+      />
       {% endif %}
-      <div class="d-flex justify-content-center">
-        <a href="{{ project.github_url }}" target="_blank" class="text-white"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-        <a href="{{ project.live_url }}" target="_blank" class="text-white"
-          ><i class="fa-solid fa-globe"></i
-        ></a>
-      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h1 class="project-title text-left">{{ project.title }}</h1>
+      <p>
+        {% if user.is_authenticated %}
+        <form
+          class="d-inline"
+          action="{% url 'like_project' project.slug %}"
+          method="POST"
+        >
+        <a
+        href="{{ project.github_url }}"
+        target="_blank"
+        class="project-icon text-white"
+        ><i class="fa-brands fa-github"></i
+      ></a>
+      <a
+        href="{{ project.live_url }}"
+        target="_blank"
+        class="project-icon text-white"
+        ><i class="fa-solid fa-globe"></i
+      ></a>
+          {% csrf_token %} {% if liked %}
+          <button
+            type="submit"
+            name="project_id"
+            class=" btn btn-link"
+            value="{{project.slug}}"
+          >
+          <span class="text-secondary"><i class="fa-solid fa-thumbs-up"></i></span>
+          </button>
+          {% else %}
+          <button
+            type="submit"
+            name="project_id"
+            class="btn btn-link"
+            value="{{project.slug}}"
+          >
+          <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>
+          </button>
+          {% endif %}
+        </form>
+        {% else %}
+        <span class="text-secondary"><i class="fa-solid fa-thumbs-up"></i></span>
+        {% endif %}
+        <!-- The number of likes goes before the closing strong tag -->
+        <span class="text-secondary">{{ project.likes_counter }} </span>
+      </p>
+      <br />
+      <h3 class="text-left">Description</h3>
+      <p class="text-left">{{ project.description | safe }}</p>
     </div>
   </div>
-</div>
-
-<div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h2 class="text-center">Description</h2>
-      <p class="text-center">{{ project.description | safe }}</p>
-    </div>
-  </div>
-  <div class="row">
-    {% if user.is_authenticated %}
-    <form
-      class="d-inline"
-      action="{% url 'like_project' project.slug %}"
-      method="POST"
-    >
-      {% csrf_token %} {% if liked %}
-      <button
-        type="submit"
-        name="project_id"
-        value="{{project.slug}}"
-        class="btn-like"
-      >
-        <i class="fas fa-heart"></i>
-      </button>
-      {% else %}
-      <button
-        type="submit"
-        name="project_id"
-        value="{{project.slug}}"
-        class="btn-like"
-      >
-        <i class="far fa-heart"></i>
-      </button>
+      <h3>Comments</h3>
+      {% if comments %} {% for comment in comments %}
+      <div class="card bg-dark">
+        <div class="card-body">
+          <p>Pros: {{ comment.text_pros }}</p>
+          <p>Cons: {{ comment.text_cons }}</p>
+          <p>Score: {{ comment.score }}</p>
+          <p class="text-muted">
+            Posted by {{ comment.name }} on {{ comment.created_on }}
+          </p>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <p>There are no comments yet.</p>
       {% endif %}
-    </form>
-    {% else %}
-    <span class="text-secondary"><i class="far fa-heart"></i></span>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="col-md-6 d-flex justify-content-center">
+      {% if wait %}
+      <div class="alert alert-success" role="alert">
+        You have already added a comment. Admin will review it and approves it shortly.
+      </div>
+      {% else %}
+      <form style="width: 400px" method="POST">
+        <h3>Add a comment</h3>
+        {{ form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">
+          Add a comment
+        </button>
+      </form>
+    </div>
     {% endif %}
-    <!-- The number of likes goes before the closing strong tag -->
-    <span class="text-secondary">{{ project.likes_counter }} </span>
+    {% else %}
+    <div class="col-md-6 text-center">
+      <h4>Send me your feedback</h4>
+      <p>
+        You need to be logged in to add a comment.
+        <a href="{% url 'account_login' %}">Login</a>
+      </p>
+    </div>
+    {% endif %}
   </div>
 </div>
 
