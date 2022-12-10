@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 <div class="row">
-    <div class="col-sm">
-        <h1>Home</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, explicabo. Quaerat, eum. Quae, aperiam. Nesciunt, quas vitae! Ipsa, odit? Doloribus, quos? Officia, officiis. Natus, quidem. Quam, deleniti. Laborum, maiores quidem?</p>
+    <div class="col">
+        <h1>Contact Us</h1>
+        <form method="POST" action="{% url 'contact' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
     </div>
 </div>
 {% endblock %}
