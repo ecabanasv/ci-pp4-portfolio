@@ -98,16 +98,19 @@ class ProjectLikeView(View):
 class ProjectCreateView(generic.CreateView):
     """ Class based view for the project create"""
     model = Project
+    template_name = 'project_create.html'
     fields = ['title', 'excerpt', 'description', 'image_main', 'live_url', 'github_url', 'published']
 
 class ProjectUpdateView(generic.UpdateView):
     """ Class based view for the project update"""
     model = Project
+    template_name = 'project_update.html'
     fields = ['title', 'excerpt', 'description', 'image_main', 'live_url', 'github_url', 'published']
 
 class ProjectDeleteView(generic.DeleteView):
     """ Class based view for the project delete"""
     model = Project
+    template_name = 'project_delete.html'
     success_url = '/portfolio/'
 
 
