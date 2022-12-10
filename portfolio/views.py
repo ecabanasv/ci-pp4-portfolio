@@ -21,6 +21,7 @@ class ProjectListView(generic.ListView):
     model = Project
     template_name = 'portfolio.html'
     context_object_name = 'projects'
+    paginate_by = 6
 
     def get_queryset(self):
         """
@@ -37,6 +38,7 @@ class ProjectDetailView(View):
         project = get_object_or_404(queryset, slug=slug)
         comments = project.comments.filter(published=True).order_by('-created_on')
         liked = False
+        wait = False
         if project.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -46,7 +48,9 @@ class ProjectDetailView(View):
             {
                 "project": project,
                 "comments": comments,
-                "liked": liked
+                "liked": liked,
+                "wait": wait,
+                "form": CommentForm()
             },
         )
 
@@ -56,13 +60,15 @@ class ProjectDetailView(View):
         project = get_object_or_404(queryset, slug=slug)
         comments = project.comments.filter(published=True).order_by('-created_on')
         liked = False
+        wait = True
         if project.likes.filter(id=self.request.user.id).exists():
             liked = True
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.project = project
-            comment.save()
+            form.instance.name = request.user.username
+            form = form.save(commit=False)
+            form.project = project
+            form.save()
             return HttpResponseRedirect(reverse('project_detail', args=[str(slug)]))
 
         return render(
@@ -72,10 +78,10 @@ class ProjectDetailView(View):
                 "project": project,
                 "comments": comments,
                 "liked": liked,
+                "wait": wait,
                 "form": form
             },
         )
-
 
 class ProjectLikeView(View):
     """ Class based view for the project like"""
@@ -88,6 +94,21 @@ class ProjectLikeView(View):
             project.likes.add(self.request.user)
 
         return HttpResponseRedirect(reverse('project_detail', args=[str(slug)]))
+
+class ProjectCreateView(generic.CreateView):
+    """ Class based view for the project create"""
+    model = Project
+    fields = ['title', 'excerpt', 'description', 'image_main', 'live_url', 'github_url', 'published']
+
+class ProjectUpdateView(generic.UpdateView):
+    """ Class based view for the project update"""
+    model = Project
+    fields = ['title', 'excerpt', 'description', 'image_main', 'live_url', 'github_url', 'published']
+
+class ProjectDeleteView(generic.DeleteView):
+    """ Class based view for the project delete"""
+    model = Project
+    success_url = '/portfolio/'
 
 
 def contact(request):
