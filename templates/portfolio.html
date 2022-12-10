@@ -22,6 +22,12 @@
         <a href="{% url 'project_detail' project.slug  %}" class="text-white"
           ><i class="fa-solid fa-circle-info"></i
         ></a>
+        {% if user.is_superuser %}
+        <a href="{% url 'project_update' project.slug  %}" class="text-warning"
+          ><i class="fa-solid fa-pen-to-square"></i></a>
+        <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
+          ><i class="fa-solid fa-trash"></i></a>
+        {% endif %}
       </div>
     </div>
   </div>
