@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center align-items-center g-2">
+    <div class="col">
+        <h1 class="text-center">Edit project - <span class="project-title">{{ project.title }}</span></h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
