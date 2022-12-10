@@ -11,25 +11,36 @@
       {% else %}
       <img class="card-img-top" src=" {{ project.image_main.url }}" />
       {% endif %}
-      <div class="card-body  text-center">
+      <div class="card-body text-center">
         <h5 class="card-title">{{ project.title }}</h5>
-            <a
-              href="{{ project.github_url }}"
-              target="_blank"
-              class="text-white"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-            <a href="{{ project.live_url }}" target="_blank" class="text-white"
-              ><i class="fa-solid fa-globe"></i
-            ></a>
-            <a
-              href="{% url 'project_detail' project.slug  %}"
-              class="text-white"
-              ><i class="fa-solid fa-circle-info"></i
-            ></a>
-        </div>
+        <a href="{{ project.github_url }}" target="_blank" class="text-white"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a href="{{ project.live_url }}" target="_blank" class="text-white"
+          ><i class="fa-solid fa-globe"></i
+        ></a>
+        <a href="{% url 'project_detail' project.slug  %}" class="text-white"
+          ><i class="fa-solid fa-circle-info"></i
+        ></a>
+      </div>
     </div>
   </div>
-  {% endfor %}
+
+  {% if forloop.counter|divisibleby:6 %}
 </div>
+<div class="row">{% endif %} {% endfor %}</div>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 {% endblock %}
+
