@@ -3,12 +3,17 @@
 {% block content %}
 <div class="row">
   {% if user.is_superuser %}
-  <div class="col-md-12 mb-3">
+  <div class="col-md-12 mb-3 d-flex justify-content-end">
     <a href="{% url 'project_create' %}" class="btn btn-secondary bg-dark text-white"
       >Add project <i class="fa-solid fa-circle-plus"></i></a
     >
+    {% if publish_b %}
     <a href="{% url 'portfolio' %}" class="btn btn-secondary bg-dark text-white"
       >See Published <i class="fa-solid fa-toggle-on"></i></a
+    >
+    {% endif %}
+    <a href="/admin/portfolio/comment/" target="_blank" class="btn btn-secondary bg-dark text-white"
+      >Admin comments <i class="fa-solid fa-comment"></i></a
     >
   </div>
   {% endif %}

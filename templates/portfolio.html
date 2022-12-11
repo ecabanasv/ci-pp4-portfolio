@@ -3,12 +3,17 @@
 {% block content %}
 <div class="row">
   {% if user.is_superuser %}
-  <div class="col-md-12 mb-3">
+  <div class="col-md-12 mb-3 d-flex justify-content-end">
     <a href="{% url 'project_create' %}" class="btn btn-secondary bg-dark text-white"
       >Add project <i class="fa-solid fa-circle-plus"></i></a
     >
+    {% if unpublish_b %}
     <a href="{% url 'portfolio_unpublished' %}" class="btn btn-secondary bg-dark text-white"
       >See Unpublished <i class="fa-solid fa-toggle-off"></i></a
+    >
+    {% endif %}
+    <a href="/admin/portfolio/comment/" target="_blank" class="btn btn-secondary bg-dark text-white"
+      >Admin comments <i class="fa-solid fa-comment"></i></a
     >
   </div>
   {% endif %}
@@ -24,7 +29,7 @@
       <img class="card-img-top" src=" {{ project.image_main.url }}" />
       {% endif %}
       <div class="card-body text-center">
-        <h5 class="card-title">{{ project.title }}        {% if user.is_superuser %}
+        <h5 class="card-title">{{ project.title }} {% if user.is_superuser %}
           <a href="{% url 'project_update' project.slug  %}" class="text-warning"
             ><i class="fa-solid fa-pen-to-square"></i></a>
           <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
