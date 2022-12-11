@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.mail import send_mail, BadHeaderError
+from django.utils.text import slugify
 from .models import Project
 from .forms import CommentForm, ContactForm, ProjectForm
 
@@ -155,10 +156,9 @@ class ProjectCreateView(generic.CreateView):
         form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             form.instance.author = request.user
+            form.instance.slug = slugify(form.instance.title)
             form.save()
-            return HttpResponseRedirect(
-                reverse("project_detail", args=[str(form.instance.slug)])
-            )
+            return HttpResponseRedirect(reverse("portfolio"))
 
         return render(
             request,
