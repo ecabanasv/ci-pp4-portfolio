@@ -9,13 +9,12 @@ from .forms import CommentForm, ContactForm, ProjectForm
 
 def index(request):
     """Returns index.html"""
-    return render(request, "index.html")
+    return render(request, "index.html", {"title": "home"})
 
 
 def about(request):
     """Returns about.html"""
-    return render(request, "about.html")
-
+    return render(request, "about.html", {"title": "about"})
 
 class ProjectListView(generic.ListView):
     """
@@ -32,6 +31,22 @@ class ProjectListView(generic.ListView):
         Return the published projects
         """
         return Project.objects.filter(published=1).order_by("-created_on")
+
+class UnpublishProjectListView(generic.ListView):
+    """
+    Class based view for the projects
+    """
+
+    model = Project
+    template_name = "portfolio_unpublished.html"
+    context_object_name = "projects"
+    paginate_by = 6
+
+    def get_queryset(self):
+        """
+        Return the unpublished projects
+        """
+        return Project.objects.filter(published=0).order_by("-created_on")
 
 
 class ProjectDetailView(View):
@@ -51,6 +66,7 @@ class ProjectDetailView(View):
             request,
             "project_detail.html",
             {
+                "title": project.title,
                 "project": project,
                 "comments": comments,
                 "liked": liked,
@@ -80,6 +96,7 @@ class ProjectDetailView(View):
             request,
             "project_detail.html",
             {
+                "title": project.title,
                 "project": project,
                 "comments": comments,
                 "liked": liked,
@@ -110,6 +127,28 @@ class ProjectCreateView(generic.CreateView):
     form_class = ProjectForm
     success_url = "/portfolio/"
 
+    def post(self, request, *args, **kwargs):
+        """Post method for the project create"""
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.instance.author = request.user
+            form.save()
+            return HttpResponseRedirect(reverse("project_detail", args=[str(form.instance.slug)]))
+
+        return render(
+            request,
+            "project_create.html",
+            {
+                "title": "create project",
+                "form": form,
+            },
+        )
+
+    def form_valid(self, form):
+        """Form validation for the project create"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 class ProjectUpdateView(generic.UpdateView):
     """Class based view for the project update"""
 
@@ -132,7 +171,7 @@ class ContactView(View):
 
     def get(self, request, *args, **kwargs):
         """Get method for the contact"""
-        return render(request, "contact.html", {"form": ContactForm()})
+        return render(request, "contact.html", {"form": ContactForm(), "title": "contact"})
 
     def post(self, request, *args, **kwargs):
         """Post method for the contact"""
@@ -155,4 +194,4 @@ class ContactView(View):
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             return HttpResponseRedirect(reverse("contact"))
-        return render(request, "contact.html", {"form": form})
+        return render(request, "contact.html", {"form": form, "title": "contact"})

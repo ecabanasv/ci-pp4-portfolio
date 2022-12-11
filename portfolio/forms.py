@@ -96,6 +96,7 @@ class ProjectForm(forms.ModelForm):
 
         labels = {
             "title": "Title",
+            "slug": "Slug",
             "excerpt": "Excerpt",
             "description": "Description",
             "image_main": "Image",
@@ -107,6 +108,9 @@ class ProjectForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Title"}
+            ),
+            "slug": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Slug"}
             ),
             "excerpt": forms.Textarea(
                 attrs={"rows": 3, "class": "form-control", "placeholder": "Excerpt"}
@@ -123,7 +127,5 @@ class ProjectForm(forms.ModelForm):
             "github_url": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Github"}
             ),
-            "published": forms.SelectMultiple(
-                attrs={"class": "form-control", "placeholder": "Published"}
-            ),
+            "published": forms.RadioSelect(attrs={"class": "form-control"}),
         }
