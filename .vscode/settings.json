@@ -1,8 +1,4 @@
 {
-   "python.linting.pylintArgs": [
-      "--load-plugins=pylint_django",
-      "--django-settings-module=portfolio.settings"
-   ],
    "python.linting.pylintEnabled": true,
    "python.linting.enabled": true,
    "python.linting.pep8Enabled": false,
