@@ -1,0 +1,30 @@
+/* Path: static\css\style.css */
+
+body {
+  background-color: #f1f1f1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+a:hover {
+  color: yellow;
+  text-decoration: none;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover{
+    color: orange;
+}
+
