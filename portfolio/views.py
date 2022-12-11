@@ -16,6 +16,7 @@ def about(request):
     """Returns about.html"""
     return render(request, "about.html", {"title": "about"})
 
+
 class ProjectListView(generic.ListView):
     """
     Class based view for the projects
@@ -26,15 +27,26 @@ class ProjectListView(generic.ListView):
     context_object_name = "projects"
     paginate_by = 6
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
         """
         Return the published projects
         """
-        return Project.objects.filter(published=1).order_by("-created_on")
+        queryset = Project.objects.filter(published=1).order_by("-created_on")
+        queryset_un = Project.objects.filter(published=0).count()
+        if queryset_un > 0:
+            unpublish_b = True
+        else:
+            unpublish_b = False
+        return render(
+            request,
+            "portfolio.html",
+            {"projects": queryset, "unpublish_b": unpublish_b},
+        )
+
 
 class UnpublishProjectListView(generic.ListView):
     """
-    Class based view for the projects
+    Class based view for the unpublished projects
     """
 
     model = Project
@@ -42,11 +54,21 @@ class UnpublishProjectListView(generic.ListView):
     context_object_name = "projects"
     paginate_by = 6
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
         """
         Return the unpublished projects
         """
-        return Project.objects.filter(published=0).order_by("-created_on")
+        queryset = Project.objects.filter(published=0).order_by("-created_on")
+        queryset_pu = Project.objects.filter(published=1).count()
+        if queryset_pu > 0:
+            publish_b = True
+        else:
+            publish_b = False
+        return render(
+            request,
+            "portfolio_unpublished.html",
+            {"projects": queryset, "publish_b": publish_b},
+        )
 
 
 class ProjectDetailView(View):
@@ -105,6 +127,7 @@ class ProjectDetailView(View):
             },
         )
 
+
 class ProjectLikeView(View):
     """Class based view for the project like"""
 
@@ -133,7 +156,9 @@ class ProjectCreateView(generic.CreateView):
         if form.is_valid():
             form.instance.author = request.user
             form.save()
-            return HttpResponseRedirect(reverse("project_detail", args=[str(form.instance.slug)]))
+            return HttpResponseRedirect(
+                reverse("project_detail", args=[str(form.instance.slug)])
+            )
 
         return render(
             request,
@@ -148,6 +173,7 @@ class ProjectCreateView(generic.CreateView):
         """Form validation for the project create"""
         form.instance.author = self.request.user
         return super().form_valid(form)
+
 
 class ProjectUpdateView(generic.UpdateView):
     """Class based view for the project update"""
@@ -171,7 +197,9 @@ class ContactView(View):
 
     def get(self, request, *args, **kwargs):
         """Get method for the contact"""
-        return render(request, "contact.html", {"form": ContactForm(), "title": "contact"})
+        return render(
+            request, "contact.html", {"form": ContactForm(), "title": "contact"}
+        )
 
     def post(self, request, *args, **kwargs):
         """Post method for the contact"""
