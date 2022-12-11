@@ -24,7 +24,7 @@
       {% endif %}
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 ps-3 pe-3">
       <h1 class="project-title text-left">{{ project.title }}</h1>
       <p>
         {% if user.is_authenticated %}
@@ -77,7 +77,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 p-3">
       <h3>Comments</h3>
       {% if comments %} {% for comment in comments %}
       <div class="card bg-dark">
@@ -95,7 +95,7 @@
       {% endif %}
     </div>
     {% if user.is_authenticated %}
-    <div class="col-md-6 d-flex justify-content-center">
+    <div class="col-md-6 d-flex justify-content-center p-3">
       {% if wait %}
       <div class="alert alert-success" role="alert">
         You have already added a comment. Admin will review it and approves it shortly.
@@ -112,7 +112,7 @@
     </div>
     {% endif %}
     {% else %}
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 text-center p-3">
       <h4>Send me your feedback</h4>
       <p>
         You need to be logged in to add a comment.
