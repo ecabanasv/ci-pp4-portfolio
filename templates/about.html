@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
-<div class="row justify-content-center">
-  <div class="col-sm">
-    <img src="https://picsum.photos/400/300" class="img-fluid" />
+<div class="row">
+  <h1>About</h1>
+  <div class="col-md-4 col-sm-12 col-xs-12 d-flex flex-column align-items-center justify-content-center mt-4">
+    <img src="https://picsum.photos/400/300" class="img-fluid rounded-3 border border-warning" />
   </div>
-  <div class="col-sm">
-    <h1>About</h1>
+  <div class="col-md-8 col-sm-12 col-xs-12 d-flex flex-column align-items-start mt-4">
     <p>
       My name is Enrique, and I am from Spain. I live in Dublin and work for
       Salesforce as a Developer Support Engineer.
@@ -24,7 +24,7 @@
       working with different web technologies: HTML5, CSS3, JavaScript and
       database administrator like SQL and Mongo.
     </p>
-    <p>For more information, check my CV at this link.</p>
+    <p>For more information, check my CV at this <a href="https://drive.google.com/file/d/1O6okv0YflyotZKNM9YiqZYdfWP8jhbEZ/view?usp=sharing" target="_blank">link</a>.</p>
   </div>
 </div>
 {% endblock %}

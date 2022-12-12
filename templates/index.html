@@ -2,17 +2,17 @@
 
 {% block content %}
 <div class="row justify-content-center my-5">
-    <div class="col-sm">
-        <main class="p-3 lh-lg">
-            <h1>Hi, <br>I'm Enrique, <br>Web Developer Student @ CI</h1>
-            <p class="lead">Full Stack / Django / Bootstrap</p>
-            <p class="lead">
-              <a href="{% url 'contact' %}" class="btn btn-outline-light">Contact me!</a>
-            </p>
-          </main>
-    </div>
-    <div class="col-sm text-center">
-       <img src="https://picsum.photos/450/300" class="img-fluid">
+  <div class="col-md-6 col-sm-12 col-xs-12 d-flex flex-column align-items-start mt-4">
+    <main class="p-3 lh-lg">
+        <h1>Hi, <br>I'm Enrique, <br>Web Developer Student @ CI</h1>
+        <p class="lead">Full Stack / Django / Bootstrap</p>
+        <p class="lead">
+          <a href="{% url 'contact' %}" class="btn btn-outline-light">Contact me!</a>
+        </p>
+      </main>
+</div>
+    <div class="col-md-6 col-sm-12 col-xs-12 d-flex flex-column align-items-center justify-content-center mt-4">
+       <img src="https://picsum.photos/550/400" class="img-fluid rounded-3 border border-warning">
     </div>
 </div>
 

@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block content %}
 <div class="row mb-3">
+  <h1>Portfolio - Unpublished</h1>
   {% if user.is_superuser %}
   <div class="col-8 d-flex justify-content-start">
     {% if publish_b %}
@@ -29,13 +30,13 @@
     <div class="card mb-4 shadow-sm bg-dark">
       {% if "placeholder" in project.image_main.url %}
       <img
-        class="card-img-top"
+        class="card-img-top rounded-3 border border-light"
         src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
       />
       {% else %}
-      <img class="card-img-top" src=" {{ project.image_main.url }}" />
+      <img class="card-img-top rounded-3 border border-light" src=" {{ project.image_main.url }}" />
       {% endif %}
-      <span class="position-absolute p-1 top-90 end-0 bg-dark">
+      <span class="position-absolute ps-1 pe-1 mt-1 me-1 top-90 end-0 bg-dark border border-dark">
         {% if user.is_superuser %}
         <a
           href="{% url 'project_update' project.slug  %}"

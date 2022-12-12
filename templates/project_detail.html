@@ -4,12 +4,13 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb text-white">
-    <li class="breadcrumb-item"><a href="{{request.META.HTTP_REFERER|escape}}"><i class="fa-solid fa-arrow-left-long"></i> Go Back</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'portfolio' %}"><i class="fa-solid fa-arrow-left-long"></i> Go Back</a></li>
   </ol>
 </nav>
 
 <div class="container">
   <div class="row">
+    <h1 class="project-title text-left">{{ project.title }}</h1>
     <div class="col-md-6">
       {% if "placeholder" in project.image_main.url %}
       <img
@@ -22,10 +23,6 @@
         src=" {{ project.image_main.url }}"
       />
       {% endif %}
-    </div>
-
-    <div class="col-md-6 ps-3 pe-3">
-      <h1 class="project-title text-left">{{ project.title }}</h1>
       <p>
         {% if user.is_authenticated %}
         <form
@@ -37,13 +34,13 @@
         href="{{ project.github_url }}"
         target="_blank"
         class="project-icon text-white"
-        ><i class="fa-brands fa-github"></i
+        ><i class="fa-brands fa-github fa-lg"></i
       ></a>
       <a
         href="{{ project.live_url }}"
         target="_blank"
         class="project-icon text-white"
-        ><i class="fa-solid fa-globe"></i
+        ><i class="fa-solid fa-globe fa-lg"></i
       ></a>
           {% csrf_token %} {% if liked %}
           <button
@@ -83,7 +80,9 @@
         <!-- The number of likes goes before the closing strong tag -->
         <span class="text-secondary">{{ project.likes_counter }} </span>
       </p>
-      <br />
+    </div>
+
+    <div class="col-md-6 ps-3 pe-3">
       <h3 class="text-left">Description</h3>
       <p class="text-left">{{ project.description | safe }}</p>
     </div>
