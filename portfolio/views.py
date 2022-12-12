@@ -77,7 +77,7 @@ class ProjectDetailView(View):
 
     def get(self, request, slug, *args, **kwargs):
         """Get method for the project detail"""
-        queryset = Project.objects.filter(published=1)
+        queryset = Project.objects
         project = get_object_or_404(queryset, slug=slug)
         comments = project.comments.filter(published=True).order_by("-created_on")
         liked = False
