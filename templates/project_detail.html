@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% block extra_title %} - {{ project.title }}{% endblock %}
+
 {% block content %} {% load crispy_forms_tags %}
 
 <nav aria-label="breadcrumb">
@@ -69,13 +71,13 @@
         href="{{ project.github_url }}"
         target="_blank"
         class="project-icon text-white"
-        ><i class="fa-brands fa-github"></i
+        ><i class="fa-brands fa-github fa-lg"></i
       ></a>
       <a
         href="{{ project.live_url }}"
         target="_blank"
         class="project-icon text-white"
-        ><i class="fa-solid fa-globe"></i
+        ><i class="fa-solid fa-globe fa-lg"></i
       ></a>
         <span class="text-secondary"><i class="fa-solid fa-thumbs-up"></i></span>
         {% endif %}

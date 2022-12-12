@@ -89,7 +89,6 @@ class ProjectDetailView(View):
             request,
             "project_detail.html",
             {
-                "title": project.title,
                 "project": project,
                 "comments": comments,
                 "liked": liked,
@@ -119,7 +118,6 @@ class ProjectDetailView(View):
             request,
             "project_detail.html",
             {
-                "title": project.title,
                 "project": project,
                 "comments": comments,
                 "liked": liked,
