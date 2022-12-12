@@ -160,10 +160,11 @@
       <!-- Grid container -->
     </footer>
     <script>
-      var msg = document.getElementById("msg");
       setTimeout(function () {
-        msg.style.display = "none";
+          let messages = document.getElementById("msg");
+          let alert = new bootstrap.Alert(messages);
+          alert.close();
       }, 3000);
-    </script>
+  </script>
   </body>
 </html>
