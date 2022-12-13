@@ -8,16 +8,16 @@
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6 col-sm-12 col-xs-12">
-        <h1>Contact Me</h1>
+    <h1>Contact me!</h1>
+    <div class="col-12 col-md-5 col-sm-12 col-xs-12">
         <form method="POST" action="{% url 'contact' %}">
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit" class="btn btn-secondary">Send</button>
         </form>
     </div>
-    <div class="col-md-6 col-sm-12 col-xs-12 d-flex flex-column align-items-center justify-content-center mt-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9524.276542059211!2d-6.282699620301406!3d53.35991761238217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670dd46b325a31%3A0x2600c7a7bb391652!2sPhibsborough%2C%20Dubl%C3%ADn!5e0!3m2!1ses!2sie!4v1670852774148!5m2!1ses!2sie" width="400" height="350" class="w-100" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="col-12 col-md-5 col-sm-12 col-xs-12 d-flex flex-column align-items-center mt-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9524.276542059211!2d-6.282699620301406!3d53.35991761238217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670dd46b325a31%3A0x2600c7a7bb391652!2sPhibsborough%2C%20Dubl%C3%ADn!5e0!3m2!1ses!2sie!4v1670852774148!5m2!1ses!2sie" width="400" height="360" class="w-100" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </iframe>
     </div>
 </div>
