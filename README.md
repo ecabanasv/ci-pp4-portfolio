@@ -19,193 +19,437 @@ A live website can be found [here](https://pp4-portfolio.herokuapp.com/).
 
 # Table of Contents
  [1. UX Design](#ux)
-  - [User Goals:](#user-goals)
-  - [User Expectations:](#user-expectations)
-  - [Project management:](#project-management)
-  -	[Colour scheme and font](#color-scheme)
-  - [Website skeleton](#wireframes)
-  - [Index](#index-page)
+- [User Goals:](#user-goals)
+- [User Expectations:](#user-expectations)
+- [Project management:](#project-management)
+-	[Colour scheme and font](#color-scheme)
+- [Website skeleton](#wireframes)
+- [Index](#index-page)
 	- [About](#about-page)
 	- [Portfolio](#portfolio-page)
 	- [Portfolio unpublished](#portfolio-unpublished-page)
-  - [Project detail](#project-detail-page)
-  - [Add project](add-project-page)
-  - [Update project](update-project-page)
-  - [Delete project](delete-project-page)
-  - [Contact](contact-page)
-  - [Signup](signup-page)
-  - [Login](login-page)
-  - [Logout](logout-page)
-      
-  [2. Features](#features)
+- [Project detail](#project-detail-page)
+- [Add project](add-project-page)
+- [Update project](update-project-page)
+- [Delete project](delete-project-page)
+- [Contact](contact-page)
+- [Signup](signup-page)
+- [Login](login-page)
+- [Logout](logout-page)
 
-  [3.Technologies](#technologies)
+[2. Features](#features)
 
-  [4.Testing](#testing-phase)
+[3.Technologies](#technologies)
 
-  [5.Bugs](#bugs)
+[4.Testing](#testing-phase)
 
-  [6. Deployment](#deployment)
+[5.Bugs](#bugs)
 
-  [7. Acknowledgement](#acknowledgement)
+[6. Deployment](#deployment)
+
+[7. Acknowledgement](#acknowledgement)
 
 
-  <a name="ux"></a>
+<a name="ux"></a>
 # 1. UX design
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
 <a name="user-goals"></a>
 ## 1.1 User Goals
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
-  First-Time Visitor Goals
-  - As a first-time visitor, I want to see portfolio projects.
-  - As a first-time visitor, I want to view the contact menu.
-  - As a first-time visitor, I want to be able to register on the website as a user.
+First-Time Visitor Goals
+- As a first-time visitor, I want to see portfolio projects.
+- As a first-time visitor, I want to see the project details.
+- As a first-time visitor, I want to see the project user comments.
+- As a first-time visitor, I want to see the project user likes.
+- As a first-time visitor, I want to view the contact menu.
+- As a first-time visitor, I want to be able to register on the website as a user.
 
-  Returning Visitor Goals
-  - As a Returning Visitor, I can comment on published projects.
-  - As a Returning Visitor, I can like/dislike projects.
+Returning Visitor Goals
 
-  Frequent User Goals
-  - As a Frequent User, I want to check if there are any new comments on projects.
+- As a Returning Visitor, I can login with my registered user.
+- As a Returning Visitor, I can comment on published projects.
+- As a Returning Visitor, I can like/dislike projects.
+
+Frequent User Goals
+
+- As a Frequent User, I want to check if there are any new projects.
+- As a Frequent User, I want to check if there are any new comments on projects.
+
+Admin User Goals
+
+- As an admin, I want to manage projects (create, publish/unpublish, update and delete)
+- As an admin, I want to manage projects comments (publish and delete)
 
 <a name="user-expectations"></a>
 ## 1.2 User Expectations
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
-  - The design should be clear and clean.
-  - Easy navigation through the different pages.
-  - Compatible with all browsers.
-  - Responsive design and adaptable to all devices.
-  - Have the possibility of contacting the developer for any questions.
+- The design should be clear and clean.
+- Easy navigation through the different pages.
+- Compatible with all browsers.
+- Responsive design and adaptable to all devices.
+- Have the possibility of contacting the developer for any questions.
 
 <a name="color-scheme"></a>
 ## 1.3 Color Scheme
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
-El esquema de colores del proyecto es bastante sencillo y limpio. Los siguientes colores utilizados se presentan a continuación:
+The colour scheme of the project is quite simple and clean. The following colours used are presented below:
 
-  - Background: #212529 
-  - Text: white
-  - Enlaces: orange
+- Background: #212529
+- Text: white
+- Links: orange
+- Hover link: yellow
+
+The colour palette can be seen through the following [link](https://coolors.co/212529-ffffff-ff7f00-ffff00).
 
 <a name="wireframes"></a>
 ## 1.4 Website Skeleton
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
-  Desktop
+### Desktop
 
-  Index:
-  ![index](docs/wireframes/desktop/01.%20Index.png)
+<details> <summary>Desktop (click here to view)</summary>
 
-  About:
-  ![about](docs/wireframes/desktop/02.%20About.png)
+Index:
+![index](docs/wireframes/desktop/01.%20Index.png)
 
-  Portfolio - 1st page:
-  ![portfolio - 1st page](docs/wireframes/desktop/03.%20Portfolio%20-%201st%20page.png)
+About:
+![about](docs/wireframes/desktop/02.%20About.png)
 
-  Portfolio - 2nd page
-  ![portfolio - 2nd page](docs/wireframes/desktop/04.%20Portfolio%20-%202nd%20page.png)
+Portfolio - 1st page:
+![portfolio - 1st page](docs/wireframes/desktop/03.%20Portfolio%20-%201st%20page.png)
 
-  Portfolio - Admin
-  ![portfolio - admin](docs/wireframes/desktop/05.%20Portfolio%20-%20Admin.png)
+Portfolio - 2nd page:
+![portfolio - 2nd page](docs/wireframes/desktop/04.%20Portfolio%20-%202nd%20page.png)
 
-  ![portfolio - unpublished](docs/wireframes/desktop/06.%20Portfolio%20-%20Unpublished.png)
+Portfolio - Admin:
+![portfolio - admin](docs/wireframes/desktop/05.%20Portfolio%20-%20Admin.png)
 
-  ![project details](docs/wireframes/desktop/07.%20Project%20details.png)
+Portfolio - Unpublished:
+![portfolio - unpublished](docs/wireframes/desktop/06.%20Portfolio%20-%20Unpublished.png)
 
-  ![project details - user](docs/wireframes/desktop/08.%20Project%20details%20-%20User.png)
+Project details:
+![project details](docs/wireframes/desktop/07.%20Project%20details.png)
 
-  ![project details - admin](docs/wireframes/desktop/09.%20Project%20details%20-%20Admin.png)
+Project details - user:
+![project details - user](docs/wireframes/desktop/08.%20Project%20details%20-%20User.png)
 
-  ![add new project](docs/wireframes/desktop/10.%20Add%20new%20project.png)
+Project details - admin:
+![project details - admin](docs/wireframes/desktop/09.%20Project%20details%20-%20Admin.png)
 
-  ![update project](docs/wireframes/desktop/11.%20Update%20project.png)
+Add new project:
+![add new project](docs/wireframes/desktop/10.%20Add%20new%20project.png)
 
-  ![delete project](docs/wireframes/desktop/12.%20Delete%20project.png)
+Update project:
+![update project](docs/wireframes/desktop/11.%20Update%20project.png)
 
-  ![contact](docs/wireframes/desktop/13.%20Contact.png)
+Delete project:
+![delete project](docs/wireframes/desktop/12.%20Delete%20project.png)
 
-  ![signup](docs/wireframes/desktop/14.%20Signup.png)
+Contact:
+![contact](docs/wireframes/desktop/13.%20Contact.png)
 
-  ![login](docs/wireframes/desktop/15.%20Login.png)
+Signup:
+![signup](docs/wireframes/desktop/14.%20Signup.png)
 
-  ![logout](docs/wireframes/desktop/16.%20Logout.png)
+Login:
+![login](docs/wireframes/desktop/15.%20Login.png)
 
+Logout:
+![logout](docs/wireframes/desktop/16.%20Logout.png)
 
-  Mobile
+</details>
 
-  ![index](docs/wireframes/mobile/01.%20Index.png)
+### Mobile
 
-  ![about](docs/wireframes/mobile/02.%20About.png)
+<details> <summary>Mobile (click here to view)</summary>
 
-  ![portfolio](docs/wireframes/mobile/03.%20Portfolio%20-%20User.png)
+Index:
 
-  ![portfolio - admin](docs/wireframes/mobile/04.%20Portfolio%20-%20Admin.png)
+![index](docs/wireframes/mobile/01.%20Index.png)
 
-  ![portfolio - unpublished](docs/wireframes/mobile/05.%20Portfolio%20-%20Unpublished.png)
+About:
 
-  ![project details](docs/wireframes/mobile/09.%20Project%20details%20-%20non%20user.png)
+![about](docs/wireframes/mobile/02.%20About.png)
 
-  ![project details - user](docs/wireframes/mobile/10.%20Project%20details%20-%20user.png)
+Portfolio:
 
-  ![project details - admin](docs/wireframes/mobile/11.%20Project%20details%20-%20admin.png)
+![portfolio](docs/wireframes/mobile/03.%20Portfolio%20-%20User.png)
 
-  ![add new project](docs/wireframes/mobile/06.%20Add%20new%20project.png)
+Portfolio - admin:
 
-  ![update project](docs/wireframes/mobile/07.%20Update%20project.png)
+![portfolio - admin](docs/wireframes/mobile/04.%20Portfolio%20-%20Admin.png)
 
-  ![delete project](docs/wireframes/mobile/08.%20Delete%20project.png)
+Portfolio - unpublished:
 
-  ![contact](docs/wireframes/mobile/12.%20Contact.png)
+![portfolio - unpublished](docs/wireframes/mobile/05.%20Portfolio%20-%20Unpublished.png)
 
-  ![signup](docs/wireframes/mobile/13.%20Signup.png)
+Project details:
 
-  ![login](docs/wireframes/mobile/14.%20Login.png)
+![project details](docs/wireframes/mobile/09.%20Project%20details%20-%20non%20user.png)
 
-  ![logout](docs/wireframes/mobile/15.%20Logout.png)
+Project details - user:
 
-  <a name="features"></a>
+![project details - user](docs/wireframes/mobile/10.%20Project%20details%20-%20user.png)
+
+Project details - admin:
+
+![project details - admin](docs/wireframes/mobile/11.%20Project%20details%20-%20admin.png)
+
+Add new project:
+
+![add new project](docs/wireframes/mobile/06.%20Add%20new%20project.png)
+
+Update project:
+
+![update project](docs/wireframes/mobile/07.%20Update%20project.png)
+
+Delete project:
+
+![delete project](docs/wireframes/mobile/08.%20Delete%20project.png)
+
+Contact:
+
+![contact](docs/wireframes/mobile/12.%20Contact.png)
+
+Signup:
+
+![signup](docs/wireframes/mobile/13.%20Signup.png)
+
+Login:
+
+![login](docs/wireframes/mobile/14.%20Login.png)
+
+Logout:
+
+![logout](docs/wireframes/mobile/15.%20Logout.png)
+
+</details>
+
+<a name="features"></a>
 # 2. Features
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
+### All Pages
 
-   <a name="technologies"></a>
+### Index
+
+### About
+
+### Portfolio
+
+### Portfolio - Unpublished
+
+### Project details
+
+### Add new project
+
+### Update project
+
+### Delete project
+
+### Contact
+
+### Sign Up
+
+### Login
+
+### Logout
+
+ <a name="technologies"></a>
 # 3. Technologies Used
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
+-   [HTML5](https://en.wikipedia.org/wiki/HTML)
+    -   The project uses HyperText Markup Language.
+-   [CSS3](https://en.wikipedia.org/wiki/CSS)
+    -   The project uses Cascading Style Sheets.
+-   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+    -   The project uses JavaScript.
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+    -   The project uses Python.
+-   [Django](https://www.djangoproject.com/)
+    -   The project uses Django framework for web development.
+-   [Boostrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+    -   The project uses Bootstrap 5.
+-   [Elephant SQL](https://www.elephantsql.com/)
+    -   The project uses ElephantSQL as a database hosting.
+-   [PostgreSQL](https://www.postgresql.org/)
+    -   The project uses PostgreSQL as a database.
+-   [Visual Studio code](https://code.visualstudio.com/)
+    -   The project uses Visual Studio code for developing.
+-   [Firefox developer](https://www.mozilla.org/en-US/firefox/developer/)
+    -   The project uses Firefox developer to debug and test the source code.
+-   [Chrome](https://www.google.com/intl/en_uk/chrome/)
+    -   The project uses Chrome Developer tools to test performance.
+-   [Balsamiq](https://balsamiq.com/)
+    -   Balsamiq was used to create the wireframes during the design process.
+-   [Google Fonts](https://fonts.google.com/)
+    -   Google fonts were used to import the "Be Vietnam Pro" font into the style.css file which is used on all pages throughout the project.
+-   [GitHub](https://github.com/)
+    -   GitHub was used to store the project's code after being pushed from Git.
 
-  <a name="testing-phase"></a>
+<a name="testing-phase"></a>
 # 4. Testing
-  [Go to the top](#table-of-contents)
-  
+[Go to the top](#table-of-contents)
+
 ## 4.1 Testing using tools
 
 ### 4.1.1 Browser Developer tools
 
+#### Google Developer tools
+
+Chrome DevTools is a set of web developer tools built directly into the Google Chrome browser. It was used in the project to test the performance of the different pages of the project. Also Lighthouse was used to check the accesibility of the web project.
+
 ### 4.1.2 Responsive Tools
+
+[Am I Responsive](http://ami.responsivedesign.is) was used to make sure that all my pages are responsive to all devices.
 
 ### 4.1.3 W3C Validator Tools (HTML and CSS)
 
+#### HTML
+
+#### CSS
+
+#### JavaScript
 
 ## 4.2 Manual Testing
 
-  <a name="bugs"></a>
+<a name="bugs"></a>
 # 5. Bugs
-  [Go to the top](#table-of-contents)
+[Go to the top](#table-of-contents)
 
 ### Solved bugs
 
-  <a name="deployment"></a>
+<a name="deployment"></a>
 # 6. Deployment
-  [Go to the top](#table-of-contents)
-  
+[Go to the top](#table-of-contents)
 
-  <a name="acknowledgement"></a>
+## Deployment to Heroku
+
+### 1. Creating the Django Project
+* If development if being done locally: Activate your virtual environment
+* To ensure the virtual environment is not tracked by version control, add .venv to the .gitignore file.
+* Install Django and gunicorn: `pip install django gunicorn`
+* Install supporting database libraries dj_database_url and psycopg2 library: `pip install dj_database_url psycopg2`
+* Install Cloudinary libraries to manage static files: `pip install dj-3-cloudinary-storage`
+* Create file for requirements: `pip freeze --local > requirements.txt`
+* Create project:`django-admin startproject project_name .`
+* Create app: `python manage.py startapp app_name`
+* Add app to list of `installed apps` in settings.py file: `'app_name'`
+* Migrate changes: `python manage.py migrate`
+* Test server works locally: `python manage.py runserver`
+
+### 2. Create your Heroku app
+* Navigate to the Heroku website
+* Create a Heroku account by entering your email address and a password (or login if you have one already).
+* Activate the account through the authentication email sent to your email account
+* Click the **new button** on the top right corner of the screen and select create a new app from the dropdown menu.
+* Enter a unique name for the application.
+* Select the appropriate region for the application.
+* Click create app
+* In the Heroku dashboard click on the Resources tab
+* Scroll down to Add-Ons, search for and select 'Heroku Postgres'
+* In the Settings tab, scroll down to 'Reveal Config Vars' and copy the text in the box beside DATABASE_URL.
+
+### 3. Set up Environment Variables
+* In you IDE create a new env.py file in the top level directory
+* Add env.py to the .gitignore file
+* In env.py import the os library
+* In env.py add `os.environ["DATABASE_URL"]` = "Paste in the text link copied above from Heroku DATABASE_URL"
+* In env.py add `os.environ["SECRET_KEY"] = "Make up your own random secret key"`
+* In Heroku Settings tab Config Vars enter the same secret key created in env.py by entering 'SECRET_KEY' in the box for 'KEY' and your randomly created secret key in the 'value' box.
+
+### 4. Setting up settings.py
+
+* In your Django 'settings.py' file type:
+
+ ```
+ from pathlib import Path
+ import os
+ import dj_database_url
+
+ if os.path.isfile("env.py"):
+  import env
+ ```
+* Remove the default insecure secret key in settings.py and replace with the link to the secret key variable in Heroku by typing: `SECRET_KEY = os.environ.get(SECRET_KEY)`
+* Comment out the `DATABASES` section in settings.py and replace with:
+```
+DATABASES = {
+  'default': 
+  dj_database_url.parse(os.environ.get("DATABASE_URL"))
+  }`
+```
+* Create a Cloudinary account and from the 'Dashboard' in Cloudinary copy your url into the env.py file by typing: `os.environ["CLOUDINARY_URL"] = "cloudinary://<insert-your-url>"`
+* In Heroku  add cloudinary url to 'config vars'
+* In Heroku config vars add DISABLE_COLLECTSTATIC with value of '1' (note: this must be removed for final deployment)
+* Add Cloudinary libraries to the installed apps section of settings.py file:
+ ```
+ 'cloudinary_storage'
+ 'django.contrib.staticfiles''
+ 'cloudinary'
+ ```
+* Connect Cloudinary to the Django app in `settings.py`:
+```
+STATIC_URL = '/static'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'STATIC')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE =
+'cloudinary_storage.storage.MediaCloudinaryStorage'
+* Link file to the templates directory in Heroku 
+* Place under the BASE_DIR: TEMPLATES_DIR = os.path.join(BASE_DIR,
+'templates')
+```
+* Change the templates directory to TEMPLATES_DIR. Place within the TEMPLATES array: `'DIRS': [TEMPLATES_DIR]`
+* Add Heroku Hostname to ALLOWED_HOSTS: ```ALLOWED_HOSTS =
+['rhi-book-nook.herokuapp.com', 'localhost']```
+*Create Procfile at the top level of the file structure and insert the following:
+    ``` web: gunicorn PROJECT_NAME.wsgi ```
+
+* Make an initial commit and push the code to the GitHub Repository.
+    ```git add .```
+    ```git commit -m "Initial deployment"```
+    ```git push```
+
+### 5. Heroku Deployment: 
+* Click Deploy tab in Heroku
+* In the 'Deployment method' section select 'Github' and click the 'connect to Github' button to confirm.
+* In the 'search' box enter the Github repository name for the project
+* Click search and then click connect to link the heroku app with the Github repository. The box will confirm that heroku is connected to the repository.
+
+### 6. Final Deployment
+In the IDE: 
+* When development is complete change the debug setting to: `DEBUG = False` in `settings.py` 
+* In Heroku settings config vars change the DISABLE_COLLECTSTATIC value to 0
+* Because DEBUG must be switched to True for development and False for production it is recommended that only manual deployment is used in Heroku. 
+* To manually deploy click the button 'Deploy Branch'. The default 'main' option in the dropdown menu should be selected in both cases. When the app is deployed a message 'Your app was successfully deployed' will be shown. Click 'view' to see the deployed app in the browser.
+
+## To fork the repository on GitHub
+
+A copy of the GitHub Repository can be made by forking the GitHub account. Changes can be made on this copy without affecting the original repository.
+
+1. Log in to GitHub and locate the repository in question.
+2. Locate the Fork button which can be found in the top corner, right-hand side of the page, inline with the repository name.
+3. Click this button to create a copy of the original repository in your GitHub Account.
+
+## To clone the repository on GitHub
+
+1. Click on the code button which is underneath the main tab and repository name to the right.
+2. In the 'Clone with HTTPS' section, click on the clipboard icon to copy the URL.
+3. Open Git Bash in your IDE of choice.
+4. Change the current working directory to where you want the cloned directory to be made.
+5. Type git clone, and then paste the URL copied from GitHub.
+6. Press enter and the clone of your repository will be created.
+
+<a name="acknowledgement"></a>
 # 7. Acknowledgement
-  [Go to the top](#table-of-contents)
-  
+[Go to the top](#table-of-contents)
+
 ### Code
 
 ### Content 
