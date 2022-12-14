@@ -96,14 +96,19 @@ El esquema de colores del proyecto es bastante sencillo y limpio. Los siguientes
 
   Desktop
 
+  Index:
   ![index](docs/wireframes/desktop/01.%20Index.png)
 
+  About:
   ![about](docs/wireframes/desktop/02.%20About.png)
 
+  Portfolio - 1st page:
   ![portfolio - 1st page](docs/wireframes/desktop/03.%20Portfolio%20-%201st%20page.png)
 
+  Portfolio - 2nd page
   ![portfolio - 2nd page](docs/wireframes/desktop/04.%20Portfolio%20-%202nd%20page.png)
 
+  Portfolio - Admin
   ![portfolio - admin](docs/wireframes/desktop/05.%20Portfolio%20-%20Admin.png)
 
   ![portfolio - unpublished](docs/wireframes/desktop/06.%20Portfolio%20-%20Unpublished.png)
