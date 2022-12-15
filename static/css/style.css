@@ -57,4 +57,11 @@ a:hover {
 
 /* project detail */
 
+.like-button{
+  background: none;
+  padding: 0;
+  border: none;
+  color: white;
+}
+
 /* contact */
