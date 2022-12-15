@@ -27,13 +27,26 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Custom CSS -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link
+      href="{% static 'css/style.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body class="text-white bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
       <div class="container">
-        <a class="navbar-brand" href="/">ecabanas dev</a>
+        <a class="navbar-brand logo-text" href="/">ecabanas dev</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -161,10 +174,10 @@
     </footer>
     <script>
       setTimeout(function () {
-          let messages = document.getElementById("msg");
-          let alert = new bootstrap.Alert(messages);
-          alert.close();
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
       }, 3000);
-  </script>
+    </script>
   </body>
 </html>

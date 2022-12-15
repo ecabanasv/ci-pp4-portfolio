@@ -2,11 +2,17 @@
 
 /* base */
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+
 body {
   background-color: #f1f1f1;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   color: #333;
+}
+
+.logo-text {
+  font-family: 'Rubik Vinyl', cursive;
 }
 
 a {
