@@ -18,6 +18,12 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center">
+<div class="col-3">
+    <p class="text-center">Current image:</p>
+    <img src="{{ project.image_main.url }}" alt="{{ project.title }}" class="img-thumbnail">
+</div>
+</div>
+<div class="row d-flex justify-content-center">
     <div class="col-12 col-md-8 col-sm-8 col-sx-8">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
