@@ -22,54 +22,19 @@ class ProjectListView(generic.ListView):
     """
     Class based view for the projects
     """
-
     model = Project
-    template_name = "portfolio.html"
+    queryset = Project.objects.filter(published=1).order_by('-created_on')
+    template_name = 'portfolio.html'
     context_object_name = "projects"
     paginate_by = 6
-
-    def get(self, request, *args, **kwargs):
-        """
-        Return the published projects
-        """
-        queryset = Project.objects.filter(published=1).order_by("-created_on")
-        queryset_un = Project.objects.filter(published=0).count()
-        if queryset_un > 0:
-            unpublish_b = True
-        else:
-            unpublish_b = False
-        return render(
-            request,
-            "portfolio.html",
-            {"projects": queryset, "unpublish_b": unpublish_b},
-        )
-
 
 class UnpublishProjectListView(generic.ListView):
-    """
-    Class based view for the unpublished projects
-    """
-
+    """ Class based view for the unpublished projects """
     model = Project
-    template_name = "portfolio_unpublished.html"
+    queryset = Project.objects.filter(published=0).order_by('-created_on')
+    template_name = 'portfolio_unpublished.html'
     context_object_name = "projects"
     paginate_by = 6
-
-    def get(self, request, *args, **kwargs):
-        """
-        Return the unpublished projects
-        """
-        queryset = Project.objects.filter(published=0).order_by("-created_on")
-        queryset_pu = Project.objects.filter(published=1).count()
-        if queryset_pu > 0:
-            publish_b = True
-        else:
-            publish_b = False
-        return render(
-            request,
-            "portfolio_unpublished.html",
-            {"projects": queryset, "publish_b": publish_b},
-        )
 
 
 class ProjectDetailView(View):

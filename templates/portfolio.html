@@ -5,13 +5,11 @@ portfolio{% endblock %} {% block content %}
   <h1 class="page-title">Portfolio</h1>
   {% if user.is_superuser %}
   <div class="col-8 d-flex justify-content-start">
-    {% if unpublish_b %}
     <a
-      href="{% url 'portfolio_unpublished' %}"
-      class="btn btn-secondary bg-dark text-white me-3"
-      >See Unpublished <i class="fa-solid fa-toggle-off"></i
-    ></a>
-    {% endif %}
+    href="{% url 'portfolio_unpublished' %}"
+    class="btn btn-secondary bg-dark text-white me-3"
+    >See Unpublished <i class="fa-solid fa-toggle-off"></i
+  ></a>
     <a
       href="/admin/portfolio/comment/"
       target="_blank"
@@ -29,6 +27,11 @@ portfolio{% endblock %} {% block content %}
 </div>
 {% endif %}
 <div class="row justify-content-center">
+  {% if projects.count == 0 %}
+  <div class="col-12">
+    <h2 class="text-center">No projects yet</h2>
+  </div>
+  {% else %} 
   {% for project in projects %}
   <div class="col-md-4">
     <div class="card mb-4 shadow-sm bg-dark">
@@ -74,7 +77,6 @@ portfolio{% endblock %} {% block content %}
       </div>
     </div>
   </div>
-
   {% if forloop.counter|divisibleby:6 %}
 </div>
 <div class="row">{% endif %} {% endfor %}</div>
@@ -95,8 +97,9 @@ portfolio{% endblock %} {% block content %}
         NEXT &raquo;</a
       >
     </li>
-
     {% endif %}
   </ul>
 </nav>
-{% endif %} {% endblock %}
+{% endif %}
+{% endif %}
+{% endblock %}

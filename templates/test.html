@@ -1,0 +1,87 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block content %} 
+
+<div class="container-fluid">
+    <div class="">
+        {% if user.is_authenticated %}
+        {% else %}
+            <p class="login-message">Please login to read full post
+                <a class="link" href="{% url 'account_login' %}">Login</a>.
+            </p>
+        {% endif %}
+    </div>
+    <div class="row">
+
+        <!--Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+            {% for post in post_list %} 
+                <div class="col-md-4">
+                    <div class="card md-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %} 
+                                <img class="card-img-top"
+                                    src="{% static 'images/stock.jpg' %}" alt="Image of clifftop overlooking the sea">
+                                {% else %} 
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                                {% endif %} 
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                </div>
+                            </div>
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <h5 class="card-title">{{ post.location }}</h5>
+                                {% if post.excerpt != "" %}
+                                <p class="card-text">{{ post.excerpt }}</p>
+                                {% else %}
+                                <br />
+                                {% endif %}
+                            <hr />
+                            <p class="card-text text-muted h6">{{ post.created_on|date }}  <i class="far fa-heart"></i>
+                                {{ post.number_of_likes }}</p>
+                            <div>
+                            {% if user.is_authenticated %}
+                            
+                                <a href="{% url 'post_detail' post.slug %}" role="button" class="btn btn-outline-dark">View</a>
+                            
+
+                            {% if post.author.id == user.id %}
+                            
+                                <a href="{% url 'post_edit' post.slug %}" role="button" class="btn btn-outline-dark">Edit</a>
+                                <a href="{% url 'post_delete' post.slug %}" role="button" class="btn btn-outline-dark">Delete</a>
+                            
+                            {% endif %}
+                            {% endif %}
+                            <hr />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            {% if forloop.counter|divisibleby:3 %} 
+            </div>
+            <div class="row">
+            {% endif %} 
+            {% endfor %} 
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{%endblock%}

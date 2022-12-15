@@ -4,13 +4,11 @@ unpublished projects{% endblock %} {% block content %}
   <h1 class="page-title">Portfolio - Unpublished</h1>
   {% if user.is_superuser %}
   <div class="col-8 d-flex justify-content-start">
-    {% if publish_b %}
     <a
       href="{% url 'portfolio' %}"
       class="btn btn-secondary bg-dark text-white me-3"
       >See Published <i class="fa-solid fa-toggle-on"></i
     ></a>
-    {% endif %}
     <a
       href="/admin/portfolio/comment/"
       target="_blank"
@@ -28,6 +26,11 @@ unpublished projects{% endblock %} {% block content %}
 </div>
 {% endif %}
 <div class="row justify-content-center">
+  {% if projects.count == 0 %}
+  <div class="col-12 col-md-8 col-sm-8 col-sx-8">
+    <p class="text-center">There are no unpublished projects.</p>
+  </div>
+  {% else %}
   {% for project in projects %}
   <div class="col-md-4">
     <div class="card mb-4 shadow-sm bg-dark">
@@ -98,4 +101,7 @@ unpublished projects{% endblock %} {% block content %}
     {% endif %}
   </ul>
 </nav>
-{% endif %} {% endblock %}
+{% endif %}
+{% endif %}
+ 
+{% endblock %}
