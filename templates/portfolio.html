@@ -1,28 +1,20 @@
-{% extends "base.html" %} {% load static %} {% block extra_title %} -
-portfolio{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %} - portfolio{% endblock %}
+{% block content %}
 
 <div class="row mb-3">
   <h1 class="page-title">Portfolio</h1>
   {% if user.is_superuser %}
   <div class="col-8 d-flex justify-content-start">
-    <a
-    href="{% url 'portfolio_unpublished' %}"
-    class="btn btn-secondary bg-dark text-white me-3"
-    >See Unpublished <i class="fa-solid fa-toggle-off"></i
-  ></a>
-    <a
-      href="/admin/portfolio/comment/"
-      target="_blank"
-      class="btn btn-secondary bg-dark text-white"
-      >Admin comments <i class="fa-solid fa-comment"></i
-    ></a>
+    <a href="{% url 'portfolio_unpublished' %}" class="btn btn-secondary bg-dark text-white me-3">See Unpublished <i
+        class="fa-solid fa-toggle-off"></i></a>
+    <a href="/admin/portfolio/comment/" target="_blank" class="btn btn-secondary bg-dark text-white">Admin comments <i
+        class="fa-solid fa-comment"></i></a>
   </div>
   <div class="col-4 d-flex justify-content-end">
-    <a
-      href="{% url 'project_create' %}"
-      class="btn btn-secondary bg-dark text-white"
-      >Add project <i class="fa-solid fa-circle-plus"></i
-    ></a>
+    <a href="{% url 'project_create' %}" class="btn btn-secondary bg-dark text-white">Add project <i
+        class="fa-solid fa-circle-plus"></i></a>
   </div>
 </div>
 {% endif %}
@@ -31,53 +23,36 @@ portfolio{% endblock %} {% block content %}
   <div class="col-12">
     <h2 class="text-center">No projects yet</h2>
   </div>
-  {% else %} 
+  {% else %}
   {% for project in projects %}
   <div class="col-md-4">
     <div class="card mb-4 shadow-sm bg-dark">
       {% if "placeholder" in project.image_main.url %}
-      <img
-        class="card-img-top rounded-3 project-image"
-        alt="{{ project.title }}"
-        src="https://res.cloudinary.com/duuefpayr/image/upload/v1671125521/default_nmmhbs.png"
-      >
+      <img class="card-img-top rounded-3 project-image" alt="{{ project.title }}"
+        src="https://res.cloudinary.com/duuefpayr/image/upload/v1671125521/default_nmmhbs.png">
       {% else %}
-      <img
-        class="card-img-top rounded-3 project-image"
-        alt="{{ project.title }}"
-        src=" {{ project.image_main.url }}"
-      >
+      <img class="card-img-top rounded-3 project-image" alt="{{ project.title }}" src=" {{ project.image_main.url }}">
       {% endif %}
-      <span
-        class="position-absolute ps-1 pe-1 mt-2 me-2 top-90 end-0 bg-dark border border-dark"
-      >
+      <span class="position-absolute ps-1 pe-1 mt-2 me-2 top-90 end-0 bg-dark border border-dark">
         {% if user.is_superuser %}
-        <a href="{% url 'project_update' project.slug  %}" class="text-warning"
-          ><i class="fa-solid fa-pen-to-square"></i
-        ></a>
-        <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
-          ><i class="fa-solid fa-trash"></i
-        ></a>
+        <a href="{% url 'project_update' project.slug  %}" class="text-warning"><i
+            class="fa-solid fa-pen-to-square"></i></a>
+        <a href="{% url 'project_delete' project.slug  %}" class="text-danger"><i class="fa-solid fa-trash"></i></a>
         {% endif %}
       </span>
       <div class="card-body text-center">
         <h5 class="card-title">{{ project.title }}</h5>
-        <a
-          href="{{ project.github_url }}"
-          target="_blank"
-          class="text-white me-2"
-          ><i class="fa-brands fa-github fa-lg"></i
-        ></a>
-        <a href="{{ project.live_url }}" target="_blank" class="text-white me-2"
-          ><i class="fa-solid fa-globe fa-lg"></i
-        ></a>
-        <a href="{% url 'project_detail' project.slug  %}" class="text-white"
-          ><i class="fa-solid fa-circle-info fa-lg"></i
-        ></a>
+        <a href="{{ project.github_url }}" target="_blank" class="text-white me-2"><i
+            class="fa-brands fa-github fa-lg"></i></a>
+        <a href="{{ project.live_url }}" target="_blank" class="text-white me-2"><i
+            class="fa-solid fa-globe fa-lg"></i></a>
+        <a href="{% url 'project_detail' project.slug  %}" class="text-white"><i
+            class="fa-solid fa-circle-info fa-lg"></i></a>
       </div>
     </div>
   </div>
   {% if forloop.counter|divisibleby:6 %}
+</div>
 </div>
 <div class="row">{% endif %} {% endfor %}</div>
 {% if is_paginated %}
@@ -85,17 +60,13 @@ portfolio{% endblock %} {% block content %}
   <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}
     <li>
-      <a
-        href="?page={{ page_obj.previous_page_number }}"
-        class="btn btn-secondary"
-        >&laquo; PREV
+      <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-secondary">&laquo; PREV
       </a>
     </li>
     {% endif %} {% if page_obj.has_next %}
     <li>
       <a href="?page={{ page_obj.next_page_number }}" class="btn btn-secondary">
-        NEXT &raquo;</a
-      >
+        NEXT &raquo;</a>
     </li>
     {% endif %}
   </ul>
