@@ -1,10 +1,5 @@
-{% extends "base.html" %} 
-
-{% load static %}
-
-{% block extra_title %} - portfolio{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block extra_title %} -
+portfolio{% endblock %} {% block content %}
 
 <div class="row mb-3">
   <h1>Portfolio</h1>
@@ -40,16 +35,21 @@
       {% if "placeholder" in project.image_main.url %}
       <img
         class="card-img-top rounded-3 border border-light"
+        alt="{{ project.title }}"
         src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
       />
       {% else %}
-      <img class="card-img-top rounded-3 border border-light" src=" {{ project.image_main.url }}" />
+      <img
+        class="card-img-top rounded-3 border border-light"
+        alt="{{ project.title }}"
+        src=" {{ project.image_main.url }}"
+      />
       {% endif %}
-      <span class="position-absolute ps-1 pe-1 mt-1 me-1 top-90 end-0 bg-dark border border-dark">
+      <span
+        class="position-absolute ps-1 pe-1 mt-1 me-1 top-90 end-0 bg-dark border border-dark"
+      >
         {% if user.is_superuser %}
-        <a
-          href="{% url 'project_update' project.slug  %}"
-          class="text-warning"
+        <a href="{% url 'project_update' project.slug  %}" class="text-warning"
           ><i class="fa-solid fa-pen-to-square"></i
         ></a>
         <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
@@ -58,10 +58,11 @@
         {% endif %}
       </span>
       <div class="card-body text-center">
-        <h5 class="card-title">
-          {{ project.title }} 
-        </h5>
-        <a href="{{ project.github_url }}" target="_blank" class="text-white me-2"
+        <h5 class="card-title">{{ project.title }}</h5>
+        <a
+          href="{{ project.github_url }}"
+          target="_blank"
+          class="text-white me-2"
           ><i class="fa-brands fa-github fa-lg"></i
         ></a>
         <a href="{{ project.live_url }}" target="_blank" class="text-white me-2"
