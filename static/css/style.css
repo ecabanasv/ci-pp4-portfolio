@@ -33,6 +33,7 @@ a:hover {
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .show > .nav-link {
   color: yellow;
+  text-decoration: underline;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus,
@@ -41,12 +42,16 @@ a:hover {
 }
 
 .nav-link {
-  font-size: 16px;
+  font-size: 22px;
 }
 
 /* index */
 
 /* about */
+
+.about-text {
+  font-size: 16px;
+}
 
 /* portfolio */
 
