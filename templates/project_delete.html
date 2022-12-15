@@ -12,9 +12,13 @@
     </ol>
 </nav>
 
-<div class="row d-flex flex-column align-items-center justify-content-center">
-    <div class="col-6">
+<div class="row">
+    <div class="col-12">
         <h1 class="page-title text-center">Delete project</h1>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-8 col-sm-8 col-sx-8">
         <p class="text-center">Are you sure you want to delete this project: <span class="project-title">{{ project.title }}</span>?</p>
         <form method="POST" class="text-center">
             {% csrf_token %}

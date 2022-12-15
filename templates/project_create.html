@@ -12,9 +12,13 @@
     </ol>
 </nav>
 
+<div class="row">
+    <div class="col-12">
+        <h1 class="page-title text-center">Add new project</h1>
+    </div>
+</div>
 <div class="row d-flex justify-content-center">
-    <div class="col-6">
-        <h3 class="text-center">Add a new project</h3>
+    <div class="col-12 col-md-8 col-sm-8 col-sx-8">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
