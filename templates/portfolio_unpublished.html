@@ -45,7 +45,7 @@ unpublished projects{% endblock %} {% block content %}
       />
       {% endif %}
       <span
-        class="position-absolute ps-1 pe-1 mt-1 me-1 top-90 end-0 bg-dark border border-dark"
+        class="position-absolute ps-1 pe-1 mt-2 me-2 top-90 end-0 bg-dark border border-dark"
       >
         {% if user.is_superuser %}
         <a href="{% url 'project_update' project.slug  %}" class="text-warning"
