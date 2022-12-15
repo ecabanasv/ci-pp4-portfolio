@@ -40,13 +40,13 @@ portfolio{% endblock %} {% block content %}
         class="card-img-top rounded-3 project-image"
         alt="{{ project.title }}"
         src="https://res.cloudinary.com/duuefpayr/image/upload/v1671125521/default_nmmhbs.png"
-      />
+      >
       {% else %}
       <img
         class="card-img-top rounded-3 project-image"
         alt="{{ project.title }}"
         src=" {{ project.image_main.url }}"
-      />
+      >
       {% endif %}
       <span
         class="position-absolute ps-1 pe-1 mt-2 me-2 top-90 end-0 bg-dark border border-dark"
