@@ -1,11 +1,3 @@
-# Project
-Welcome!
-
-## Introduction
-
-
-## Table of Contents 
-
 # ecabanas dev - ci portfolio
 
 ## Introduction
@@ -15,27 +7,13 @@ This project will show the use of CRUD functionality (Create, Read, Update, Dele
 
 A live website can be found [here](https://pp4-portfolio.herokuapp.com/).
 
-![website preview](docs/images/)
-
 # Table of Contents
  [1. UX Design](#ux)
 - [User Goals:](#user-goals)
 - [User Expectations:](#user-expectations)
-- [Project management:](#project-management)
+- [User Stories:](#user-stories)
 -	[Colour scheme and font](#color-scheme)
 - [Website skeleton](#wireframes)
-- [Index](#index-page)
-	- [About](#about-page)
-	- [Portfolio](#portfolio-page)
-	- [Portfolio unpublished](#portfolio-unpublished-page)
-- [Project detail](#project-detail-page)
-- [Add project](add-project-page)
-- [Update project](update-project-page)
-- [Delete project](delete-project-page)
-- [Contact](contact-page)
-- [Signup](signup-page)
-- [Login](login-page)
-- [Logout](logout-page)
 
 [2. Features](#features)
 
@@ -92,8 +70,18 @@ Admin User Goals
 - Responsive design and adaptable to all devices.
 - Have the possibility of contacting the developer for any questions.
 
+<a name="user-stories"></a>
+## 1.3 User Stories
+[Go to the top](#table-of-contents)
+
+The project has been managed using the GitHub project boards tool. It is a very useful tool to classify the different tasks to be carried out in the project.
+
+![github-boards](docs/images/github-boards.png)
+
+Link to user stories [here](https://github.com/users/ecabanasv/projects/10/views/1)
+
 <a name="color-scheme"></a>
-## 1.3 Color Scheme
+## 1.4 Color Scheme
 [Go to the top](#table-of-contents)
 
 The colour scheme of the project is quite simple and clean. The following colours used are presented below:
@@ -106,7 +94,7 @@ The colour scheme of the project is quite simple and clean. The following colour
 The colour palette can be seen through the following [link](https://coolors.co/212529-ffffff-ff7f00-ffff00).
 
 <a name="wireframes"></a>
-## 1.4 Website Skeleton
+## 1.5 Website Skeleton
 [Go to the top](#table-of-contents)
 
 ### Desktop
@@ -317,6 +305,32 @@ Chrome DevTools is a set of web developer tools built directly into the Google C
 #### JavaScript
 
 ## 4.2 Manual Testing
+
+### All Pages
+
+### Index
+
+### About
+
+### Portfolio
+
+### Portfolio - Unpublished
+
+### Project details
+
+### Add new project
+
+### Update project
+
+### Delete project
+
+### Contact
+
+### Sign Up
+
+### Login
+
+### Logout
 
 <a name="bugs"></a>
 # 5. Bugs
