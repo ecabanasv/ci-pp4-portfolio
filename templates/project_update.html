@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h1 class="page-title text-center">Edit project - <span class="project-title">{{ project.title }}</h1>
+        <h1 class="page-title text-center">Edit project - <span class="project-title">{{ project.title }}</span></h1>
     </div>
 </div>
 <div class="row d-flex justify-content-center">
@@ -25,7 +25,7 @@
       class="img-thumbnail"
       alt="{{ project.title }}"
       src="https://res.cloudinary.com/duuefpayr/image/upload/v1671125521/default_nmmhbs.png"
-    />
+    >
     {% else %}
     <img src="{{ project.image_main.url }}" alt="{{ project.title }}" class="img-thumbnail">
     {% endif %}

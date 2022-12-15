@@ -35,7 +35,7 @@ class CommentForm(forms.ModelForm):
                 attrs={"rows": 3, "class": "form-control", "placeholder": "Cons"}
             ),
             "score": forms.Select(
-                attrs={"class": "form-control", "placeholder": "Rate"}
+                attrs={"class": "form-control"}
             ),
         }
 
@@ -129,7 +129,7 @@ class ProjectForm(forms.ModelForm):
                 }
             ),
             "image_main": forms.FileInput(
-                attrs={"class": "form-control", "placeholder": "Image"}
+                attrs={"class": "form-control"}
             ),
             "live_url": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Live URL"}
@@ -138,6 +138,6 @@ class ProjectForm(forms.ModelForm):
                 attrs={"class": "form-control", "placeholder": "Github"}
             ),
             "published": forms.Select(
-                attrs={"class": "form-control", "placeholder": "Published"}
+                attrs={"class": "form-control"}
             ),
         }
