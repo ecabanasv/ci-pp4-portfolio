@@ -1,87 +1,86 @@
-{% extends "base.html" %}
-
-{% load static %}
-
-{% block extra_title %} - {{ project.title }}{% endblock %}
-
-{% block content %} {% load crispy_forms_tags %}
+{% extends "base.html" %} {% load static %} {% block extra_title %} - {{
+project.title }}{% endblock %} {% block content %} {% load crispy_forms_tags %}
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb text-white">
-    <li class="breadcrumb-item"><a href="{% url 'portfolio' %}"><i class="fa-solid fa-arrow-left-long"></i> Go Back</a></li>
+    <li class="breadcrumb-item">
+      <a href="{% url 'portfolio' %}"
+        ><i class="fa-solid fa-arrow-left-long"></i> Go Back</a
+      >
+    </li>
   </ol>
 </nav>
 
 <div class="container">
   <div class="row">
+    <span class="d-flex justify-content-end bg-dark border border-dark mt-2 mb-2">
+      {% if user.is_superuser %}
+      <a href="{% url 'project_update' project.slug  %}" class="text-warning"
+        ><i class="fa-solid fa-pen-to-square fa-lg me-2"></i
+      ></a>
+      <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
+        ><i class="fa-solid fa-trash fa-lg"></i
+      ></a>
+      {% endif %}
+    </span>
     <h1 class="project-title text-left">{{ project.title }}</h1>
     <div class="col-md-6">
       <div class="card mb-4 shadow-sm bg-dark">
         {% if "placeholder" in project.image_main.url %}
         <img
-          class="project-image img-fluid" alt="{{ project.title }}"
+          class="project-image img-fluid mt-3"
+          alt="{{ project.title }}"
           src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
         />
         {% else %}
         <img
-          class="project-image img-fluid" alt="{{ project.title }}"
+          class="project-image img-fluid mt-3"
+          alt="{{ project.title }}"
           src=" {{ project.image_main.url }}"
         />
         {% endif %}
-        <span
-          class="position-absolute top-90 end-0 ps-1 pe-1 mt-1 me-1 bg-dark border border-dark"
-        >
-          {% if user.is_superuser %}
-          <a href="{% url 'project_update' project.slug  %}" class="text-warning"
-            ><i class="fa-solid fa-pen-to-square"></i
-          ></a>
-          <a href="{% url 'project_delete' project.slug  %}" class="text-danger"
-            ><i class="fa-solid fa-trash"></i
-          ></a>
-          {% endif %}
-        </span>
       </div>
       <div class="d-flex justify-content-center">
-          {% if user.is_authenticated %}
-          <form
-            class="d-inline"
-            action="{% url 'like_project' project.slug %}"
-            method="POST"
+        {% if user.is_authenticated %}
+        <form
+          class="d-inline"
+          action="{% url 'like_project' project.slug %}"
+          method="POST"
+        >
+          <a
+            href="{{ project.github_url }}"
+            target="_blank"
+            class="project-icon text-white"
+            ><i class="fa-brands fa-github fa-lg"></i
+          ></a>
+          <a
+            href="{{ project.live_url }}"
+            target="_blank"
+            class="project-icon text-white"
+            ><i class="fa-solid fa-globe fa-lg ms-2 me-2"></i
+          ></a>
+          {% csrf_token %} {% if liked %}
+          <button
+            type="submit"
+            name="project_id"
+            class="like-button"
+            value="{{project.slug}}"
           >
-          <a
-          href="{{ project.github_url }}"
-          target="_blank"
-          class="project-icon text-white"
-          ><i class="fa-brands fa-github fa-lg"></i
-        ></a>
-        <a
-          href="{{ project.live_url }}"
-          target="_blank"
-          class="project-icon text-white"
-          ><i class="fa-solid fa-globe fa-lg ms-2 me-2"></i
-        ></a>
-            {% csrf_token %} {% if liked %}
-            <button
-              type="submit"
-              name="project_id"
-              class="like-button"
-              value="{{project.slug}}"
-            >
             <span><i class="fa-solid fa-thumbs-up"></i></span>
-            </button>
-            {% else %}
-            <button
-              type="submit"
-              name="project_id"
-              class="like-button"
-              value="{{project.slug}}"
-            >
-            <span><i class="fa-regular fa-thumbs-up fa-lg"></i></span>
-            </button>
-            {% endif %}
-          </form>
+          </button>
           {% else %}
-          <a
+          <button
+            type="submit"
+            name="project_id"
+            class="like-button"
+            value="{{project.slug}}"
+          >
+            <span><i class="fa-regular fa-thumbs-up fa-lg"></i></span>
+          </button>
+          {% endif %}
+        </form>
+        {% else %}
+        <a
           href="{{ project.github_url }}"
           target="_blank"
           class="project-icon text-white"
@@ -93,10 +92,12 @@
           class="project-icon text-white"
           ><i class="fa-solid fa-globe fa-lg"></i
         ></a>
-          <span class="like-button"><i class="fa-solid fa-thumbs-up fa-lg"></i></span>
-          {% endif %}
-          <!-- The number of likes goes before the closing strong tag -->
-          <span class="text-secondary ms-2">{{ project.likes_counter }} </span>
+        <span class="like-button"
+          ><i class="fa-solid fa-thumbs-up fa-lg"></i
+        ></span>
+        {% endif %}
+        <!-- The number of likes goes before the closing strong tag -->
+        <span class="text-secondary ms-2">{{ project.likes_counter }} </span>
       </div>
     </div>
 
@@ -127,20 +128,17 @@
     <div class="col-md-6 d-flex justify-content-center p-3">
       {% if wait %}
       <div class="alert alert-success" role="alert">
-        You have already added a comment. Admin will review it and approves it shortly.
+        You have already added a comment. Admin will review it and approves it
+        shortly.
       </div>
       {% else %}
       <form style="width: 400px" method="POST">
         <h3>Add a comment</h3>
-        {{ form | crispy }}
-        {% csrf_token %}
-        <button type="submit" class="btn btn-secondary">
-          Add a comment
-        </button>
+        {{ form | crispy }} {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">Add a comment</button>
       </form>
     </div>
-    {% endif %}
-    {% else %}
+    {% endif %} {% else %}
     <div class="col-md-6 text-center p-3">
       <h4>Send me your feedback</h4>
       <p>
