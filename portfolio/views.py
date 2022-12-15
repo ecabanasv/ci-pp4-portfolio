@@ -22,17 +22,20 @@ class ProjectListView(generic.ListView):
     """
     Class based view for the projects
     """
+
     model = Project
-    queryset = Project.objects.filter(published=1).order_by('-created_on')
-    template_name = 'portfolio.html'
+    queryset = Project.objects.filter(published=1).order_by("-created_on")
+    template_name = "portfolio.html"
     context_object_name = "projects"
     paginate_by = 6
 
+
 class UnpublishProjectListView(generic.ListView):
-    """ Class based view for the unpublished projects """
+    """Class based view for the unpublished projects"""
+
     model = Project
-    queryset = Project.objects.filter(published=0).order_by('-created_on')
-    template_name = 'portfolio_unpublished.html'
+    queryset = Project.objects.filter(published=0).order_by("-created_on")
+    template_name = "portfolio_unpublished.html"
     context_object_name = "projects"
     paginate_by = 6
 
@@ -44,7 +47,8 @@ class ProjectDetailView(View):
         """Get method for the project detail"""
         queryset = Project.objects
         project = get_object_or_404(queryset, slug=slug)
-        comments = project.comments.filter(published=True).order_by("-created_on")
+        comments = project.comments.filter(
+            published=True).order_by("-created_on")
         liked = False
         wait = False
         if project.likes.filter(id=self.request.user.id).exists():
@@ -66,7 +70,8 @@ class ProjectDetailView(View):
         """Post method for the project detail"""
         queryset = Project.objects.filter(published=1)
         project = get_object_or_404(queryset, slug=slug)
-        comments = project.comments.filter(published=True).order_by("-created_on")
+        comments = project.comments.filter(published=True).order_by(
+            "-created_on")
         liked = False
         wait = True
         if project.likes.filter(id=self.request.user.id).exists():
@@ -77,7 +82,8 @@ class ProjectDetailView(View):
             form = form.save(commit=False)
             form.project = project
             form.save()
-            return HttpResponseRedirect(reverse("project_detail", args=[str(slug)]))
+            return HttpResponseRedirect(reverse(
+                "project_detail", args=[str(slug)]))
 
         return render(
             request,
@@ -103,7 +109,8 @@ class ProjectLikeView(View):
         else:
             project.likes.add(self.request.user)
 
-        return HttpResponseRedirect(reverse("project_detail", args=[str(slug)]))
+        return HttpResponseRedirect(reverse(
+            "project_detail", args=[str(slug)]))
 
 
 class ProjectCreateView(generic.CreateView):
@@ -161,7 +168,8 @@ class ContactView(View):
     def get(self, request, *args, **kwargs):
         """Get method for the contact"""
         return render(
-            request, "contact.html", {"form": ContactForm(), "title": "contact"}
+            request, "contact.html", {
+                "form": ContactForm(), "title": "contact"}
         )
 
     def post(self, request, *args, **kwargs):
@@ -185,4 +193,5 @@ class ContactView(View):
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             return HttpResponseRedirect(reverse("contact"))
-        return render(request, "contact.html", {"form": form, "title": "contact"})
+        return render(
+            request, "contact.html", {"form": form, "title": "contact"})

@@ -8,7 +8,6 @@ from .models import Project, Comment
 
 
 @admin.register(Project)
-
 class ProjectAdmin(SummernoteModelAdmin):
     """Admin View for Project"""
 
@@ -22,8 +21,8 @@ class ProjectAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('description')
 
-@admin.register(Comment)
 
+@admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """Admin View for Comment"""
 

@@ -28,7 +28,8 @@ class Project(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     published = models.IntegerField(choices=PUBLISH, default=0)
-    likes = models.ManyToManyField(User, related_name="project_likes", blank=True)
+    likes = models.ManyToManyField(
+        User, related_name="project_likes", blank=True)
 
     # Meta class for ordering projects by date
 

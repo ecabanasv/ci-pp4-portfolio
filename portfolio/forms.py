@@ -29,14 +29,14 @@ class CommentForm(forms.ModelForm):
                 attrs={"class": "form-control", "placeholder": "Name"}
             ),
             "text_pros": forms.Textarea(
-                attrs={"rows": 3, "class": "form-control", "placeholder": "Pros"}
+                attrs={
+                    "rows": 3, "class": "form-control", "placeholder": "Pros"}
             ),
             "text_cons": forms.Textarea(
-                attrs={"rows": 3, "class": "form-control", "placeholder": "Cons"}
+                attrs={
+                    "rows": 3, "class": "form-control", "placeholder": "Cons"}
             ),
-            "score": forms.Select(
-                attrs={"class": "form-control"}
-            ),
+            "score": forms.Select(attrs={"class": "form-control"}),
         }
 
 
@@ -72,7 +72,9 @@ class ContactForm(forms.ModelForm):
                 attrs={"class": "form-control", "placeholder": "Subject"}
             ),
             "message": forms.Textarea(
-                attrs={"rows": 3, "class": "form-control", "placeholder": "Message"}
+                attrs={
+                    "rows": 3, "class": "form-control",
+                    "placeholder": "Message"}
             ),
         }
 
@@ -107,7 +109,11 @@ class ProjectForm(forms.ModelForm):
 
         widgets = {
             "title": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Title", "autofocus": True}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Title",
+                    "autofocus": True,
+                }
             ),
             "slug": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Slug"}
@@ -128,16 +134,12 @@ class ProjectForm(forms.ModelForm):
                     "placeholder": "Description",
                 }
             ),
-            "image_main": forms.FileInput(
-                attrs={"class": "form-control"}
-            ),
+            "image_main": forms.FileInput(attrs={"class": "form-control"}),
             "live_url": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Live URL"}
             ),
             "github_url": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Github"}
             ),
-            "published": forms.Select(
-                attrs={"class": "form-control"}
-            ),
+            "published": forms.Select(attrs={"class": "form-control"}),
         }
