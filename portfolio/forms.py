@@ -99,7 +99,7 @@ class ProjectForm(forms.ModelForm):
             "slug": "Slug",
             "excerpt": "Excerpt",
             "description": "Description",
-            "image_main": "Image",
+            "image_main": "Image (700x393 px)",
             "live_url": "URL",
             "github_url": "Github",
             "published": "Published",
