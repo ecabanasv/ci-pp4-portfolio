@@ -20,7 +20,15 @@
 <div class="row d-flex justify-content-center">
 <div class="col-3">
     <p class="text-center">Current image:</p>
+    {% if "placeholder" in project.image_main.url %}
+    <img
+      class="img-thumbnail"
+      alt="{{ project.title }}"
+      src="https://res.cloudinary.com/duuefpayr/image/upload/v1671125521/default_nmmhbs.png"
+    />
+    {% else %}
     <img src="{{ project.image_main.url }}" alt="{{ project.title }}" class="img-thumbnail">
+    {% endif %}
 </div>
 </div>
 <div class="row d-flex justify-content-center">
