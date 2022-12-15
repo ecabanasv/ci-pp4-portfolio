@@ -1,5 +1,13 @@
 /* Path: static\css\style.css */
 
+/* all pages */
+
+.page-title{
+  font-size: 32px;
+  font-weight: bolder;
+  color: orange;
+}
+
 /* base */
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap");

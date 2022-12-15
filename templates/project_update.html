@@ -14,7 +14,7 @@
 
 <div class="row d-flex justify-content-center">
     <div class="col-6">
-        <h3 class="text-center">Edit project - <span class="project-title">{{ project.title }}</span></h3>
+        <h1 class="page-title text-center">Edit project - <span class="project-title">{{ project.title }}</span></h1>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
