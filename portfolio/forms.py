@@ -107,16 +107,26 @@ class ProjectForm(forms.ModelForm):
 
         widgets = {
             "title": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Title"}
+                attrs={"class": "form-control", "placeholder": "Title", "autofocus": True}
             ),
             "slug": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Slug"}
             ),
             "excerpt": forms.Textarea(
-                attrs={"rows": 3, "class": "form-control", "placeholder": "Excerpt"}
+                attrs={
+                    "maxlength": 80,
+                    "rows": 2,
+                    "class": "form-control",
+                    "placeholder": "Excerpt",
+                }
             ),
             "description": forms.Textarea(
-                attrs={"rows": 3, "class": "form-control", "placeholder": "Description"}
+                attrs={
+                    "maxlength": 200,
+                    "rows": 3,
+                    "class": "form-control",
+                    "placeholder": "Description",
+                }
             ),
             "image_main": forms.FileInput(
                 attrs={"class": "form-control", "placeholder": "Image"}
@@ -127,5 +137,7 @@ class ProjectForm(forms.ModelForm):
             "github_url": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Github"}
             ),
-            "published": forms.RadioSelect(attrs={"class": "form-control"}),
+            "published": forms.Select(
+                attrs={"class": "form-control", "placeholder": "Published"}
+            ),
         }
