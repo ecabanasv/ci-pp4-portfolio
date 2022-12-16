@@ -12,7 +12,8 @@ A live website can be found [here](https://pp4-portfolio.herokuapp.com/).
 - [User Goals:](#user-goals)
 - [User Expectations:](#user-expectations)
 - [User Stories:](#user-stories)
--	[Colour scheme and font](#color-scheme)
+- [Colour scheme and font](#color-scheme)
+- [Database Model](#database-model)
 - [Website skeleton](#wireframes)
 
 [2. Features](#features)
@@ -93,8 +94,118 @@ The colour scheme of the project is quite simple and clean. The following colour
 
 The colour palette can be seen through the following [link](https://coolors.co/212529-ffffff-ff7f00-ffff00).
 
+<a name="database-model"></a>
+## 1.5 Database model
+[Go to the top](#table-of-contents)
+
+![database-model](docs/images/erd-diagram.png)
+
+Final database structure for the portfolio app:
+
+```python
+"""
+Models for the portfolio app
+"""
+from django.db import models
+from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
+
+
+PUBLISH = ((0, "NO"), (1, "YES"))
+RATE = ((0, "0"), (1, "1"), (2, "2"), (3, "3"), (4, "4"), (5, "5"))
+
+
+class Project(models.Model):
+    """
+    Model for the project
+    """
+
+    title = models.CharField(max_length=250, unique=True)
+    slug = models.SlugField(max_length=250, unique=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="project_posts"
+    )
+    image_main = CloudinaryField("image", default="placeholder")
+    excerpt = models.TextField(blank=True)
+    description = models.TextField()
+    github_url = models.URLField(max_length=200)
+    live_url = models.URLField(max_length=200)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    published = models.IntegerField(choices=PUBLISH, default=0)
+    likes = models.ManyToManyField(
+        User, related_name="project_likes", blank=True)
+
+    # Meta class for ordering projects by date
+
+    class Meta:
+        """
+        Meta class for ordering projects by date
+        """
+
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return str(self.title)
+
+    def likes_counter(self):
+        """
+        Return the number of likes for a project
+        """
+        return self.likes.count()
+
+
+# Comments model
+
+
+class Comment(models.Model):
+    """
+    Model for the comments
+    """
+
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, related_name="comments"
+    )
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    text_pros = models.TextField()
+    text_cons = models.TextField()
+    score = models.IntegerField(choices=RATE, default=0)
+    created_on = models.DateTimeField(auto_now_add=True)
+    published = models.BooleanField(default=False)
+
+    class Meta:
+        """
+        Meta class for ordering comments by date
+        """
+
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return (
+            "Pros: {self.text_pros}"
+            + "Cons: {self.text_cons}"
+            + "Score: {self.score}"
+            + "By: {self.name}"
+        )
+
+
+class Contact(models.Model):
+    """
+    Model for the contact
+    """
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+
+    def __str__(self):
+        return str(self.name)
+```
+
 <a name="wireframes"></a>
-## 1.5 Website Skeleton
+## 1.6 Website Skeleton
 [Go to the top](#table-of-contents)
 
 ### Desktop
@@ -485,9 +596,29 @@ Forms:
 
 ## 4.2 Manual Testing
 
+The project was tested with different browsers: Chrome, Safari, Firefox and Edge.
+
+These include:
+-   iPhone X
+-   iPhone XS Max
+-   iPad Pro
+-   MacBook Pro
+
 ### All Pages
 
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
+
 ### Index
+
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
 
 Lighthouse:
 
@@ -495,11 +626,23 @@ Lighthouse:
 
 ### About
 
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
+
 Lighthouse:
 
 ![about](docs/test/lighthouse/02-about.png)
 
 ### Portfolio
+
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
 
 Lighthouse:
 
@@ -507,11 +650,23 @@ Lighthouse:
 
 ### Project details
 
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
+
 Lighthouse:
 
 ![project-details](docs/test/lighthouse/04-project_details.png)
 
 ### Contact
+
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
 
 Lighthouse:
 
@@ -519,11 +674,23 @@ Lighthouse:
 
 ### Add new project
 
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
+
 Lighthouse:
 
 ![add-new-project](docs/test/lighthouse/06-add_new_project.png)
 
 ### Update project
+
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
 
 Lighthouse:
 
@@ -531,11 +698,23 @@ Lighthouse:
 
 ### Delete project
 
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
+
 Lighthouse:
 
 ![delete-project](docs/test/lighthouse/08-delete_project.png)
 
 ### Sign Up
+
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
 
 Lighthouse:
 
@@ -543,11 +722,23 @@ Lighthouse:
 
 ### Login
 
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
+
 Lighthouse:
 
 ![login](docs/test/lighthouse/10-login.png)
 
 ### Logout
+
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+ | | PASS
+ | | PASS
+ | | PASS
 
 Lighthouse:
 
@@ -688,7 +879,3 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 ### Code
 
 ### Content 
-
-
-
-
