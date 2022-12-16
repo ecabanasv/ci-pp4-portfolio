@@ -83,7 +83,7 @@ class ProjectDetailView(View):
             form = form.save(commit=False)
             form.project = project
             form.save()
-            messages.success(request, "Comment added successfully")
+            messages.success(request, "Comment sent successfully. Admin will review it soon.")
             return HttpResponseRedirect(reverse(
                 "project_detail", args=[str(slug)]))
 
