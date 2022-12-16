@@ -562,6 +562,8 @@ Chrome DevTools is a set of web developer tools built directly into the Google C
 
 #### HTML
 
+Most of the the issues where related to "slash" that were removed from all the pages. Also there were not closed divs in portfolio and unpublished templates.
+
 Index fails:
 
 ![index-bad](docs/test/html/01-index-bad.png)
@@ -660,17 +662,18 @@ These include:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Logo button | When click direct to homepage    | PASS
+Navbar buttons | Nav links direct to their page   | PASS
+Footer links | Footer links direct to right page| PASS
+Responsive | Design adapted to different devices | PASS
 
 ### Index
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Index text | Show index text | PASS
+Contact button | Direct to contact form when click | PASS
+Image display | Displays the index image | PASS
 
 Lighthouse:
 
@@ -680,21 +683,33 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+About text | Show about text | PASS
+Image display | Displays about image | PASS
+CV gdrive link | Direct to gdrive link | PASS
 
 Lighthouse:
 
 ![about](docs/test/lighthouse/02-about.png)
 
-### Portfolio
+### Portfolio / Unpublished
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Project display | Display published/unpublished projects | PASS
+Project image | Display project main image | PASS
+Title  | Show project title | PASS
+Github url | Show right Github URL | PASS
+Live url | Show right live URL | PASS
+Info url | Show right project info URL | PASS
+Pagination | Pagination works when there are more than 6 projects | PASS
+Published/Unpublished btn | Unpublished btn show when admin user logged | PASS
+Admin comments btn | Admin comments btn show when admin user logged | PASS
+Add project btn | Add project show when admin user logged | PASS
+Edit project btn | Edit project show when admin user logged | PASS
+Delete project btn | Delete project show when admin user logged | PASS
+Message | Display message when add/edit/delete project | PASS
+
+
 
 Lighthouse:
 
@@ -704,9 +719,16 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Main image | Shows main project image | PASS
+Title | Shows project title | PASS
+Description | Shows project description | PASS
+Edit project btn | Edit project show when admin user logged | PASS
+Delete project btn | Delete project show when admin user logged | PASS
+Like/Unlike | When user is registered user can like/dislike | PASS
+Like counter | Shows like counter | PASS
+Comment form | When user is registered shows comment form | PASS
+Message | Display message when add/edit/delete project | PASS
+Go back | When click Go Back redirect to Portfolio | PASS
 
 Lighthouse:
 
@@ -716,9 +738,10 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Contact form | Shows contact form | PASS
+Send message | Functionality works when send form | PASS
+Shows map | Shows Google Map iframe | PASS
+Message | Display message send message | PASS
 
 Lighthouse:
 
@@ -728,9 +751,9 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Shows Add project form | Shows add project form | PASS
+Add project completed | When click add project is added | PASS
+Go back | When click Go Back redirect to Portfolio | PASS
 
 Lighthouse:
 
@@ -740,9 +763,10 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Shows Update project form | Shows update project form | PASS
+Add project completed | When click update project is updated | PASS
+Current image | Shows current project image | PASS
+Go back | When click Go Back redirect to Portfolio | PASS
 
 Lighthouse:
 
@@ -752,9 +776,9 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Shows Delete project form | Shows delete project form | PASS
+Delete project completed | When click delete project is deleted | PASS
+Go back | When click Go Back redirect to Portfolio | PASS
 
 Lighthouse:
 
@@ -764,9 +788,9 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Display Signup form | Shows form correctly | PASS
+Signup action | User is correctly registered | PASS
+Message | Display message when signup | PASS
 
 Lighthouse:
 
@@ -776,9 +800,9 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Display Login form | Shows form correctly | PASS
+Login action | User is correctly logged | PASS
+Message | Display message when login | PASS
 
 Lighthouse:
 
@@ -788,9 +812,9 @@ Lighthouse:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
- | | PASS
- | | PASS
- | | PASS
+Display logout form | Shows form correctly | PASS
+Logout action | User is logout | PASS
+Message | Display message when logout | PASS
 
 Lighthouse:
 
@@ -801,6 +825,11 @@ Lighthouse:
 [Go to the top](#table-of-contents)
 
 ### Solved bugs
+
+- DEBUG set to true when deploy the project to Heroku.
+- Fixed all the divs in portfolio/unpublished that were not closed.
+- Fixed the project images to 700x393 px in order to display them correcly in portfolio.
+- Centered rows and col with d-flex justify-content-center instead of no using d-flex.
 
 <a name="deployment"></a>
 # 6. Deployment
@@ -928,6 +957,16 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 # 7. Acknowledgement
 [Go to the top](#table-of-contents)
 
+I want to thanks to Kasia for all the follow ups during this time. And I also I want to thanks to my mentor all the great feedbacks and advises during the process.
+
 ### Code
 
+Tool used to create the ERD diagram
+https://www.wplogout.com/export-database-diagrams-erd-from-django/
+
+Tutorial used to set up favicon on web project
+https://learndjango.com/tutorials/django-favicon-tutorial
+
 ### Content 
+
+Default image used in CI project walkthrough
