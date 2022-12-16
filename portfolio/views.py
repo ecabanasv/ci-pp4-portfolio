@@ -4,6 +4,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from django.utils.text import slugify
+from django.contrib import messages
 from .models import Project
 from .forms import CommentForm, ContactForm, ProjectForm
 
@@ -82,6 +83,7 @@ class ProjectDetailView(View):
             form = form.save(commit=False)
             form.project = project
             form.save()
+            messages.success(request, "Comment added successfully")
             return HttpResponseRedirect(reverse(
                 "project_detail", args=[str(slug)]))
 
@@ -105,8 +107,10 @@ class ProjectLikeView(View):
         """get method for the project like"""
         project = get_object_or_404(Project, slug=slug)
         if project.likes.filter(id=self.request.user.id).exists():
+            messages.success(request, "You unliked this project")
             project.likes.remove(self.request.user)
         else:
+            messages.success(request, "You liked this project")
             project.likes.add(self.request.user)
 
         return HttpResponseRedirect(reverse(
@@ -128,6 +132,7 @@ class ProjectCreateView(generic.CreateView):
             form.instance.author = request.user
             form.instance.slug = slugify(form.instance.title)
             form.save()
+            messages.success(request, "Project added successfully")
             return HttpResponseRedirect(reverse("portfolio"))
 
         return render(
@@ -153,6 +158,38 @@ class ProjectUpdateView(generic.UpdateView):
     form_class = ProjectForm
     success_url = "/portfolio/"
 
+    def get(self, request, slug, *args, **kwargs):
+        """Get method for the project update"""
+        project = get_object_or_404(Project, slug=slug)
+        return render(
+            request,
+            "project_update.html",
+            {
+                "project": project,
+                "form": ProjectForm(instance=project),
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+        """Post method for the project update"""
+        project = get_object_or_404(Project, slug=slug)
+        form = ProjectForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            form.instance.author = request.user
+            form.instance.slug = slugify(form.instance.title)
+            form.save()
+            messages.success(request, "Project updated successfully")
+            return HttpResponseRedirect(reverse("portfolio"))
+
+        return render(
+            request,
+            "project_update.html",
+            {
+                "project": project,
+                "form": form,
+            },
+        )
+
 
 class ProjectDeleteView(generic.DeleteView):
     """Class based view for the project delete"""
@@ -161,6 +198,23 @@ class ProjectDeleteView(generic.DeleteView):
     template_name = "project_delete.html"
     success_url = "/portfolio/"
 
+    def get(self, request, slug, *args, **kwargs):
+        """Get method for the project delete"""
+        project = get_object_or_404(Project, slug=slug)
+        return render(
+            request,
+            "project_delete.html",
+            {
+                "project": project,
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+        """Post method for the project delete"""
+        project = get_object_or_404(Project, slug=slug)
+        project.delete()
+        messages.success(request, "Project deleted successfully")
+        return HttpResponseRedirect(reverse("portfolio"))
 
 class ContactView(View):
     """Class based view for the contact"""
