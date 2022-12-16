@@ -244,8 +244,10 @@ class ContactView(View):
                     "ecvoracle@gmail.com",
                     ["ecvoracle@gmail.com"],
                 )
+                messages.success(request, "Message sent successfully")
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             return HttpResponseRedirect(reverse("contact"))
+        messages.error(request, "Message not sent")
         return render(
             request, "contact.html", {"form": form, "title": "contact"})
