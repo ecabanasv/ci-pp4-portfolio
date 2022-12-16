@@ -102,51 +102,67 @@ The colour palette can be seen through the following [link](https://coolors.co/2
 <details> <summary>Desktop (click here to view)</summary>
 
 Index:
+
 ![index](docs/wireframes/desktop/01.%20Index.png)
 
 About:
+
 ![about](docs/wireframes/desktop/02.%20About.png)
 
 Portfolio - 1st page:
+
 ![portfolio - 1st page](docs/wireframes/desktop/03.%20Portfolio%20-%201st%20page.png)
 
 Portfolio - 2nd page:
+
 ![portfolio - 2nd page](docs/wireframes/desktop/04.%20Portfolio%20-%202nd%20page.png)
 
 Portfolio - Admin:
+
 ![portfolio - admin](docs/wireframes/desktop/05.%20Portfolio%20-%20Admin.png)
 
 Portfolio - Unpublished:
+
 ![portfolio - unpublished](docs/wireframes/desktop/06.%20Portfolio%20-%20Unpublished.png)
 
 Project details:
+
 ![project details](docs/wireframes/desktop/07.%20Project%20details.png)
 
 Project details - user:
+
 ![project details - user](docs/wireframes/desktop/08.%20Project%20details%20-%20User.png)
 
 Project details - admin:
+
 ![project details - admin](docs/wireframes/desktop/09.%20Project%20details%20-%20Admin.png)
 
 Add new project:
+
 ![add new project](docs/wireframes/desktop/10.%20Add%20new%20project.png)
 
 Update project:
+
 ![update project](docs/wireframes/desktop/11.%20Update%20project.png)
 
 Delete project:
+
 ![delete project](docs/wireframes/desktop/12.%20Delete%20project.png)
 
 Contact:
+
 ![contact](docs/wireframes/desktop/13.%20Contact.png)
 
 Signup:
+
 ![signup](docs/wireframes/desktop/14.%20Signup.png)
 
 Login:
+
 ![login](docs/wireframes/desktop/15.%20Login.png)
 
 Logout:
+
 ![logout](docs/wireframes/desktop/16.%20Logout.png)
 
 </details>
@@ -223,73 +239,108 @@ Logout:
 
 ### All Pages
 
+Header:
+
+![navbar](docs/images/desktop/navbar.png)
+
+Messages:
+
+![messages](docs/images/desktop/messages.png)
+
+Footer:
+
+![footer](docs/images/desktop/footer.png)
+
 ### Index
 
 Index:
+
 ![index](docs/images/desktop/01-index.png)
 
 ### About
 
 About:
+
 ![about](docs/images/desktop/02-about.png)
 
 ### Portfolio
 
 User:
+
 ![portfolio-user](docs/images/desktop/03-portfolio-user.png)
 
 Admin:
+
 ![portfolio-admin](docs/images/desktop/04-portfolio-admin.png)
+
+Admin comments:
+
+![admin-comments](docs/images/desktop/admin-comments.png)
+
+Pagination:
+
+![pagination](docs/images/desktop/pagination.png)
 
 ### Portfolio - Unpublished
 
 Portfolio unpublished:
+
 ![portfolio-unpublished](docs/images/desktop/05-portfolio-unpublished.png)
 
 ### Project details
 
 Project details (non user):
+
 ![project-details-nonuser](docs/images/desktop/06-project-details-nonuser.png)
 
 Project details (user):
+
 ![project-details-user](docs/images/desktop/07-project-details-user.png)
 
 Project details (admin):
+
 ![project-details-admin](docs/images/desktop/08-project-details-admin.png)
 
 ### Add new project
 
 Add new project:
+
 ![add-new-project](docs/images/desktop/09-add_new_project.png)
 
 ### Update project
 
 Update project:
+
 ![update-project](docs/images/desktop/10-update_project.png)
 
 ### Delete project
 
 Delete project:
+
 ![update-project](docs/images/desktop/11-delete_project.png)
 
 ### Contact
 
 Contact:
+
 ![contact](docs/images/desktop/12-contact.png)
 
 ### Sign Up
 
 Signup:
+
 ![contact](docs/images/desktop/13-signup.png)
 
 ### Login
 
 Login:
+
 ![contact](docs/images/desktop/14-login.png)
 
 ### Logout
 
 Logout:
+
 ![contact](docs/images/desktop/15-logout.png)
 
  <a name="technologies"></a>
@@ -396,29 +447,36 @@ Login:
 #### CSS
 
 CSS Validator:
+
 ![css-validator](docs/test/css/validator.png
 
 #### JavaScript
 
 JavaScript validator:
+
 ![js-validator](docs/test/javascript/validator.png
 
 
 #### Python
 
 Admin:
+
 ![admin](docs/test/python/01-admin.png
 
 Models:
+
 ![models](docs/test/python/02-models.png
 
 URLs:
+
 ![urls](docs/test/python/03-urls.png
 
 Views:
+
 ![views](docs/test/python/04-views.png
 
 Forms:
+
 ![forms](docs/test/python/05-forms.png
 
 ## 4.2 Manual Testing
@@ -428,56 +486,67 @@ Forms:
 ### Index
 
 Lighthouse:
+
 ![index](docs/test/lighthouse/01-index.png)
 
 ### About
 
 Lighthouse:
+
 ![about](docs/test/lighthouse/02-about.png)
 
 ### Portfolio
 
 Lighthouse:
+
 ![portfolio](docs/test/lighthouse/03-portfolio.png)
 
 ### Project details
 
 Lighthouse:
+
 ![project-details](docs/test/lighthouse/04-project_details.png)
 
 ### Contact
 
 Lighthouse:
+
 ![contact](docs/test/lighthouse/05-contact.png)
 
 ### Add new project
 
 Lighthouse:
+
 ![add-new-project](docs/test/lighthouse/06-add_new_project.png)
 
 ### Update project
 
 Lighthouse:
+
 ![update-project](docs/test/lighthouse/07-update_project.png)
 
 ### Delete project
 
 Lighthouse:
+
 ![delete-project](docs/test/lighthouse/08-delete_project.png)
 
 ### Sign Up
 
 Lighthouse:
+
 ![sign-up](docs/test/lighthouse/09-signup.png)
 
 ### Login
 
 Lighthouse:
+
 ![login](docs/test/lighthouse/10-login.png)
 
 ### Logout
 
 Lighthouse:
+
 ![logout](docs/test/lighthouse/11-logout.png)
 
 <a name="bugs"></a>
