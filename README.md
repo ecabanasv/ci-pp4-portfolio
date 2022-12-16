@@ -239,9 +239,13 @@ Logout:
 
 ### All Pages
 
-Header:
+Navbar - desktop:
 
-![navbar](docs/images/desktop/navbar.png)
+![navbar-desktop](docs/images/desktop/navbar.png)
+
+Navbar - mobile:
+
+![navbar-mobile](docs/images/mobile/navbar.png)
 
 Messages:
 
