@@ -225,27 +225,72 @@ Logout:
 
 ### Index
 
+Index:
+![index](docs/images/desktop/01-index.png)
+
 ### About
+
+About:
+![about](docs/images/desktop/02-about.png)
 
 ### Portfolio
 
+User:
+![portfolio-user](docs/images/desktop/03-portfolio-user.png)
+
+Admin:
+![portfolio-admin](docs/images/desktop/04-portfolio-admin.png)
+
 ### Portfolio - Unpublished
+
+Portfolio unpublished:
+![portfolio-unpublished](docs/images/desktop/05-portfolio-unpublished.png)
 
 ### Project details
 
+Project details (non user):
+![project-details-nonuser](docs/images/desktop/06-project-details-nonuser.png)
+
+Project details (user):
+![project-details-user](docs/images/desktop/07-project-details-user.png)
+
+Project details (admin):
+![project-details-admin](docs/images/desktop/08-project-details-admin.png)
+
 ### Add new project
+
+Add new project:
+![add-new-project](docs/images/desktop/09-add_new_project.png)
 
 ### Update project
 
+Update project:
+![update-project](docs/images/desktop/10-update_project.png)
+
 ### Delete project
+
+Delete project:
+![update-project](docs/images/desktop/11-delete_project.png)
 
 ### Contact
 
+Contact:
+![contact](docs/images/desktop/12-contact.png)
+
 ### Sign Up
+
+Signup:
+![contact](docs/images/desktop/13-signup.png)
 
 ### Login
 
+Login:
+![contact](docs/images/desktop/14-login.png)
+
 ### Logout
+
+Logout:
+![contact](docs/images/desktop/15-logout.png)
 
  <a name="technologies"></a>
 # 3. Technologies Used
@@ -300,9 +345,81 @@ Chrome DevTools is a set of web developer tools built directly into the Google C
 
 #### HTML
 
+Index fails:
+
+![index-bad](docs/test/html/01-index-bad.png)
+
+Index passed:
+
+![index-good](docs/test/html/01-index-good.png
+
+About:
+
+![about](docs/test/html/02-about-good.png
+
+
+Portfolio:
+
+![portfolio](docs/test/html/03-portfolio.png
+
+
+Project details:
+
+![project-details](docs/test/html/04-project_details.png
+
+
+Add project:
+
+![add-project](docs/test/html/05-add_project.png
+
+
+Delete project:
+
+![delete-project](docs/test/html/07-delete_project.png
+
+
+Contact:
+
+![contact](docs/test/html/08-contact.png
+
+
+Signup:
+
+![signup](docs/test/html/09-signup.png
+
+
+Login:
+
+![login](docs/test/html/10-login.png
+
+
 #### CSS
 
+CSS Validator:
+![css-validator](docs/test/css/validator.png
+
 #### JavaScript
+
+JavaScript validator:
+![js-validator](docs/test/javascript/validator.png
+
+
+#### Python
+
+Admin:
+![admin](docs/test/python/01-admin.png
+
+Models:
+![models](docs/test/python/02-models.png
+
+URLs:
+![urls](docs/test/python/03-urls.png
+
+Views:
+![views](docs/test/python/04-views.png
+
+Forms:
+![forms](docs/test/python/05-forms.png
 
 ## 4.2 Manual Testing
 
@@ -310,27 +427,58 @@ Chrome DevTools is a set of web developer tools built directly into the Google C
 
 ### Index
 
+Lighthouse:
+![index](docs/test/lighthouse/01-index.png)
+
 ### About
+
+Lighthouse:
+![about](docs/test/lighthouse/02-about.png)
 
 ### Portfolio
 
-### Portfolio - Unpublished
+Lighthouse:
+![portfolio](docs/test/lighthouse/03-portfolio.png)
 
 ### Project details
 
-### Add new project
-
-### Update project
-
-### Delete project
+Lighthouse:
+![project-details](docs/test/lighthouse/04-project_details.png)
 
 ### Contact
 
+Lighthouse:
+![contact](docs/test/lighthouse/05-contact.png)
+
+### Add new project
+
+Lighthouse:
+![add-new-project](docs/test/lighthouse/06-add_new_project.png)
+
+### Update project
+
+Lighthouse:
+![update-project](docs/test/lighthouse/07-update_project.png)
+
+### Delete project
+
+Lighthouse:
+![delete-project](docs/test/lighthouse/08-delete_project.png)
+
 ### Sign Up
+
+Lighthouse:
+![sign-up](docs/test/lighthouse/09-signup.png)
 
 ### Login
 
+Lighthouse:
+![login](docs/test/lighthouse/10-login.png)
+
 ### Logout
+
+Lighthouse:
+![logout](docs/test/lighthouse/11-logout.png)
 
 <a name="bugs"></a>
 # 5. Bugs
