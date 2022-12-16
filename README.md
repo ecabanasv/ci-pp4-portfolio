@@ -402,82 +402,82 @@ Index fails:
 
 Index passed:
 
-![index-good](docs/test/html/01-index-good.png
+![index-good](docs/test/html/01-index-good.png)
 
 About:
 
-![about](docs/test/html/02-about-good.png
+![about](docs/test/html/02-about-good.png)
 
 
 Portfolio:
 
-![portfolio](docs/test/html/03-portfolio.png
+![portfolio](docs/test/html/03-portfolio.png)
 
 
 Project details:
 
-![project-details](docs/test/html/04-project_details.png
+![project-details](docs/test/html/04-project_details.png)
 
 
 Add project:
 
-![add-project](docs/test/html/05-add_project.png
+![add-project](docs/test/html/05-add_project.png)
 
 
 Delete project:
 
-![delete-project](docs/test/html/07-delete_project.png
+![delete-project](docs/test/html/07-delete_project.png)
 
 
 Contact:
 
-![contact](docs/test/html/08-contact.png
+![contact](docs/test/html/08-contact.png)
 
 
 Signup:
 
-![signup](docs/test/html/09-signup.png
+![signup](docs/test/html/09-signup.png)
 
 
 Login:
 
-![login](docs/test/html/10-login.png
+![login](docs/test/html/10-login.png)
 
 
 #### CSS
 
 CSS Validator:
 
-![css-validator](docs/test/css/validator.png
+![css-validator](docs/test/css/validator.png)
 
 #### JavaScript
 
 JavaScript validator:
 
-![js-validator](docs/test/javascript/validator.png
+![js-validator](docs/test/javascript/validator.png)
 
 
 #### Python
 
 Admin:
 
-![admin](docs/test/python/01-admin.png
+![admin](docs/test/python/01-admin.png)
 
 Models:
 
-![models](docs/test/python/02-models.png
+![models](docs/test/python/02-models.png)
 
 URLs:
 
-![urls](docs/test/python/03-urls.png
+![urls](docs/test/python/03-urls.png)
 
 Views:
 
-![views](docs/test/python/04-views.png
+![views](docs/test/python/04-views.png)
 
 Forms:
 
-![forms](docs/test/python/05-forms.png
+![forms](docs/test/python/05-forms.png)
 
 ## 4.2 Manual Testing
 
