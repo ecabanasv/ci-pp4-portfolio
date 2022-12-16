@@ -5,6 +5,8 @@ Welcome to my fourth project. This project is a simple portfolio, allow users to
 
 This project will show the use of CRUD functionality (Create, Read, Update, Delete). The admin will be able create, read, update and delete their projects.
 
+![responsive-web](docs/images/responsive.png)
+
 A live website can be found [here](https://pp4-portfolio.herokuapp.com/).
 
 # Table of Contents
@@ -350,6 +352,8 @@ Logout:
 
 ### All Pages
 
+The navbar is positioned at the top and is visible on all web pages.
+
 Navbar - desktop:
 
 ![navbar-desktop](docs/images/desktop/navbar.png)
@@ -358,9 +362,12 @@ Navbar - mobile:
 
 ![navbar-mobile](docs/images/mobile/navbar.png)
 
+The messages will appear below the navbar whenever the user executes the actions of commenting, liking/unlike project, adding/editing/deleting a project, login/logout user session or sends a message through the contact form.
 Messages:
 
 ![messages](docs/images/desktop/messages.png)
+
+The footer element is present on all web pages and contains links to LinkedIn profiles, GitHub and another to send an email to the developer.
 
 Footer:
 
@@ -368,17 +375,29 @@ Footer:
 
 ### Index
 
+Landing page of the project with a simple description, an image related to web development and a button that leads to the contact form.
+
 Index:
 
 ![index](docs/images/desktop/01-index.png)
 
 ### About
 
+Page with a short description of the developer and a personal main photo.
+
 About:
 
 ![about](docs/images/desktop/02-about.png)
 
 ### Portfolio
+
+The application's main page is where the different projects added and published are presented.
+
+The presentation of the projects has been paginated to 6 projects per page.
+
+You will see the main image of the project, the title of the project and the links to the GitHub repository, a live URL link and another button that goes to the details of the project.
+
+The following is the visualization for the different types of users:
 
 User:
 
@@ -388,9 +407,13 @@ Admin:
 
 ![portfolio-admin](docs/images/desktop/04-portfolio-admin.png)
 
+The superuser (admin) will display project management options, such as add, edit and delete projects. Also two buttons: One to view unpublished projects and another to manage project comments.
+
 Admin comments:
 
 ![admin-comments](docs/images/desktop/admin-comments.png)
+
+When there are more than six projects in the portfolios (published and unpublished), the pagination button will be displayed (image below)
 
 Pagination:
 
@@ -398,11 +421,15 @@ Pagination:
 
 ### Portfolio - Unpublished
 
+The page where unpublished projects will be displayed with the same administrator options as the published portfolio page.
+
 Portfolio unpublished:
 
 ![portfolio-unpublished](docs/images/desktop/05-portfolio-unpublished.png)
 
 ### Project details
+
+The project details page will allow registered users the following options: send comments and like/dislike.
 
 Project details (non user):
 
@@ -412,11 +439,15 @@ Project details (user):
 
 ![project-details-user](docs/images/desktop/07-project-details-user.png)
 
+The administrator can access the options to edit and delete projects.
+
 Project details (admin):
 
 ![project-details-admin](docs/images/desktop/08-project-details-admin.png)
 
 ### Add new project
+
+Form to add a project to the portfolio. The image, to maintain the consistency of the size of the thumbnails, will have to be 700x393 px. Selecting Published will be sent to the published or unpublished portfolio.
 
 Add new project:
 
@@ -424,11 +455,15 @@ Add new project:
 
 ### Update project
 
+Form to edit a project to the portfolio. The image, to maintain the consistency of the size of the thumbnails, will have to be 700x393 px. Selecting Published will be sent to the published or unpublished portfolio. The display of the current image is added to have a reference when editing the image.
+
 Update project:
 
 ![update-project](docs/images/desktop/10-update_project.png)
 
 ### Delete project
+
+Form to delete a project from the portfolio. It is presented with a simple button to confirm the deletion of the project.
 
 Delete project:
 
@@ -436,11 +471,15 @@ Delete project:
 
 ### Contact
 
+Contact form and Google Maps image. EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' has been used to check the correct functioning of sending messages.
+
 Contact:
 
 ![contact](docs/images/desktop/12-contact.png)
 
 ### Sign Up
+
+Standard form for user registration.
 
 Signup:
 
@@ -448,11 +487,15 @@ Signup:
 
 ### Login
 
+Standard form for user login.
+
 Login:
 
 ![contact](docs/images/desktop/14-login.png)
 
 ### Logout
+
+Confirmation page to log out the user.
 
 Logout:
 
@@ -494,6 +537,14 @@ Logout:
 <a name="testing-phase"></a>
 # 4. Testing
 [Go to the top](#table-of-contents)
+
+Please login with the users below to test the project. One is superuser (admin) and another is regular user:
+
+Admin (Username / Password)
+- test_admin / uGmaHAhTw6ksD6P
+
+User (Username / Password)
+- test_dummy / uGmaHAhTw6ksD6P
 
 ## 4.1 Testing using tools
 
@@ -603,6 +654,7 @@ These include:
 -   iPhone XS Max
 -   iPad Pro
 -   MacBook Pro
+-   POCO X3
 
 ### All Pages
 
