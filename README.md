@@ -511,7 +511,7 @@ Lighthouse:
 
 Lighthouse:
 
-![contact](docs/test/lighthouse/05-contact.png)
+![contact](docs/test/lighthouse/05-contact-form.png)
 
 ### Add new project
 
