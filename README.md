@@ -556,7 +556,7 @@ Chrome DevTools is a set of web developer tools built directly into the Google C
 
 ### 4.1.2 Responsive Tools
 
-[Am I Responsive](http://ami.responsivedesign.is) was used to make sure that all my pages are responsive to all devices.
+[Am I Responsive](https://ui.dev/amiresponsive?url=https://pp4-portfolio.herokuapp.com/) was used to make sure that all my pages are responsive to all devices.
 
 ### 4.1.3 W3C Validator Tools (HTML and CSS)
 
