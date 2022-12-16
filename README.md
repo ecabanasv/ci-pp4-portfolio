@@ -969,4 +969,5 @@ https://learndjango.com/tutorials/django-favicon-tutorial
 
 ### Content 
 
-Default image used in CI project walkthrough
+- Default image used in CI project walkthrough
+- pngtree.com for the main index image
